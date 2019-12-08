@@ -1,2 +1,0 @@
-# php
-Testes com PHP
