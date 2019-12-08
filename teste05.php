@@ -68,31 +68,5 @@ for ($i=1;$i<=10;$i++){
 	echo "<br>";
 }}
 ?>
-<!-- $num = @$_GET['num'];
-if(isset($num)){
-for ($i=1;$i<=10;$i++){
-	$mult = $num * $i;
-	echo "$num X $i = $mult";
-	echo "<br>";
-}} -->
-
-
-<!-- //AULA ***********************
-
-$x = 1;
-
-while($x <= 10){
-	echo "oi $x<br>";
-	$x++;
-}
-
-echo "<br>";
-
-
-for($x=1;$x<=10;$x++){
-	echo "oi $x<br>";
-} ******************************* -->
-
-
 </div>
 </body></html>

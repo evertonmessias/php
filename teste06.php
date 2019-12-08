@@ -54,24 +54,6 @@ echo "Maior número: $maior";
 
 ?>
 
-<!-- for($i=0;$i<5;$i++){
-	$num[$i] = @$_GET['num'.$i];
-}
-
-foreach($num as $apres){
-	echo $apres."&emsp;";
-}
-
-$maior = 0;
-
-for($i=0;$i<5;$i++){
-	if($num[$i] >= $maior){
-		$maior = $num[$i];
-	}
-}
-echo "<br><br>";
-echo "Maior número: $maior"; -->
-
 </div>
 </fieldset>
 </form>

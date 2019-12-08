@@ -85,11 +85,11 @@
                     <ul>
 
                         <li><a href="teste01.php">Teste 01 - Olá Mundo</a></li>
-                        <li><a href="teste02.php">Teste 02 - Ex. Media</a></li>
+                        <li><a href="teste02.php">Teste 02 - Básico</a></li>
                         <li><a href="teste03.php">Teste 03 - Ex. IMC</a></li>
                         <li><a href="teste04.php">Teste 04 - Menu PHP</a></li>
-                        <li><a href="teste05.php">Teste 05 - Básico 1</a></li>
-                        <li><a href="teste06.php">Teste 06 - Básico 2</a></li>
+                        <li><a href="teste05.php">Teste 05 - PHP CSS</a></li>
+                        <li><a href="teste06.php">Teste 06 - Loop GET</a></li>
                         <li><a href="teste07.php">Teste 07 - Session</a></li>
                         <li><a href="teste08.html">Teste 08 - MySQL</a></li>
                         <li><a href="teste09.php">Teste 09 - POO</a></li>
