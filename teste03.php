@@ -43,7 +43,7 @@
 		}
 
 		#botao1,
-		#botao2 {				
+		#botao2 {
 			background-color: #808080;
 			color: white;
 			font-weight: bold;
@@ -62,20 +62,42 @@
 				if ((peso > 50 && peso < 250) && (altura >= 1 && altura <= 2.5)) {
 					console.log(peso);
 					console.log(altura);
-					$.post("./teste03-2.php", {
+					$.ajax({
+						url: 'teste03-2.php',
+						type: 'POST',
+						data: {
+							peso: peso,
+							altura: altura
+						},
+						success: function(mostrar) {
+							$('#resp').html(mostrar)
+								.css({
+									"color": "black",
+									"font-weight": "normal"
+								});
+						}
+					});
+					/*$.post("./teste03-2.php", {
 						peso: peso,
 						altura: altura
 					}, function(mostrar) {
 						$('#resp').html(mostrar)
 						.css({"color":"black","font-weight":"normal"});
-					})
+					})*/
 				} else {
 					$('#resp').html("<p>Dados incorretos<p>")
-					.css({"color":"red","font-weight":"bold"});
+						.css({
+							"color": "red",
+							"font-weight": "bold"
+						});
 				}
 			});
 			$("#botao2").click(function() {
-				$('#resp').html("<p>Resposta<p>");
+				$('#resp').html("<p>Resposta<p>")
+					.css({
+						"color": "black",
+						"font-weight": "normal"
+					});
 			});
 		})
 	</script>
