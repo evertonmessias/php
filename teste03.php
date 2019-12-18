@@ -63,7 +63,7 @@
 					console.log(peso);
 					console.log(altura);
 					$.ajax({
-						url: 'teste03anexo.php',
+						url: 'teste03-2.php',
 						type: 'POST',
 						data: {
 							peso: peso,
