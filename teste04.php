@@ -54,24 +54,5 @@ switch($pagina) {
 
 </section>
 
-<!--
-$pagina = @$_GET['num'];
-switch($pagina) {
-	case 1:
-	include('./pag1.html');
-	break;
-	case 2:
-	include('./pag2.html');
-	break;
-	case 3:
-	include('./pag3.html');
-	break;
-	default:
-	include('./pag1.html');
-}
--->
-
-
-
 </body>
 </html>
