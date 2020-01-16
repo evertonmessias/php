@@ -1,5 +1,7 @@
 <?php
 
+// curl -o temp.html http://portfolio.em/testes/php/teste.php
+
 echo "<h1>10:00:00 - quinta 16 janeiro 2020</h1>";
 echo "<h1>1579179600</h1>";
 
