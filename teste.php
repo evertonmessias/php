@@ -19,12 +19,12 @@ echo $data->format($formato);
 
 echo "<br>";echo "<hr>";echo "<br>";
 
-$futruro = new DateTime($hoje, new DateTimeZone('America/Recife'));
-echo $futruro->format($formato);
+$futuro = new DateTime($hoje, new DateTimeZone('America/Recife'));
+echo $futuro->format($formato);
 echo "<br>";
-echo $futruro->getTimestamp();
+echo $futuro->getTimestamp();
 echo "<br>";
-$futruro->add(new DateInterval('P10D')); // add 10 dias
-echo $futruro->format($formato);
+$futuro->add(new DateInterval('P10D')); // add 10 dias
+echo $futuro->format($formato);
 echo "<br>";
-echo $futruro->getTimestamp();
+echo $futuro->getTimestamp();
