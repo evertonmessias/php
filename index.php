@@ -89,7 +89,7 @@
                         <li><a href="teste03.php" target="_blank">Teste 03 - Ex. IMC</a></li>
                         <li><a href="teste04.php" target="_blank">Teste 04 - Menu PHP</a></li>
                         <li><a href="teste05.php" target="_blank">Teste 05 - PHP CSS</a></li>
-                        <li><a href="teste06.php" target="_blank">Teste 06 - Loop GET</a></li>
+                        <li><a href="teste06.php" target="_blank">Teste 06 - Upload Files</a></li>
                         <li><a href="teste07.php" target="_blank">Teste 07 - Session</a></li>
                         <li><a href="teste08.html" target="_blank">Teste 08 - MySQL</a></li>
                         <li><a href="teste09.php" target="_blank">Teste 09 - POO</a></li>

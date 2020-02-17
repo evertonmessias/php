@@ -105,9 +105,9 @@
 		</fieldset>
 	</form>
 	<div class="tabuada">
-		<?php
-						$num = @$_GET['num'];
-						if (isset($num)) {
+		<?php						
+						if (isset($_GET['num'])) {
+							extract($_GET);
 							for ($i = 1; $i <= 10; $i++) {
 								$mult = $num * $i;
 								echo "$num X $i = $mult";
