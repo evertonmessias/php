@@ -87,7 +87,7 @@
 					echo "Nome Temp: " . $arquivo['tmp_name'] . "<br>";
 					echo "Erro: " . $arquivo['error'] . "<br><br>";
 
-					if ($arquivo['type'] == "image/png") {
+					if ($arquivo['type'] == "image/png" || $arquivo['type'] == "image/jpeg") {
 						$envio = move_uploaded_file($arquivo['tmp_name'], "img/" . $arquivo['name']);
 						if ($envio) {
 							echo "<span class='ok'>SUCESSO:</span><br><br>";
