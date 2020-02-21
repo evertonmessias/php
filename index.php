@@ -79,27 +79,27 @@
             <nav>
                 <fieldset>
                     <legend>
-                        <h4>Exemplos</h4>
+<h4>Exemplos</h4>
                     </legend>
 
                     <ul>
-
-                        <li><a href="teste01.php" target="_blank">Teste 01 - Olá Mundo</a></li>
-                        <li><a href="teste02.php" target="_blank">Teste 02 - Básico</a></li>
-                        <li><a href="teste03.php" target="_blank">Teste 03 - Ex. IMC</a></li>
-                        <li><a href="teste04.php" target="_blank">Teste 04 - Menu PHP</a></li>
-                        <li><a href="teste05.php" target="_blank">Teste 05 - PHP CSS</a></li>
-                        <li><a href="teste06.php" target="_blank">Teste 06 - Upload Files</a></li>
-                        <li><a href="teste07.php" target="_blank">Teste 07 - Session</a></li>
-                        <li><a href="teste08.html" target="_blank">Teste 08 - MySQL</a></li>
-                        <li><a href="teste09.php" target="_blank">Teste 09 - POO</a></li>
-                        <li><a href="teste10.php" target="_blank">Teste 10 - ContaBanco</a></li>
-                        <li><a href="teste11.php" target="_blank">Teste 11 - ControleRemoto</a></li>
-                        <li><a href="teste12.php" target="_blank">Teste 12 - Relac Classes</a></li>
-                        <li><a href="teste13.php" target="_blank">Teste 13 - Eq. 2ºGrau POO</a></li>
-                        <li><a href="teste14.php" target="_blank">Teste 14 - Herança & Polim</a></li>
-                        <li><a href="teste15.php" target="_blank">Teste 15 - Segurança</a></li>
-                  
+                    <!-- INICIO do /index.php -->
+<li><a href="./index_aux.php?file=teste01.php" target="_blank">Teste 01 - Olá Mundo</a></li>
+<li><a href="./index_aux.php?file=teste02.php" target="_blank">Teste 02 - Básico</a></li>
+<li><a href="./index_aux.php?file=teste03.php" target="_blank">Teste 03 - Ex. IMC</a></li>
+<li><a href="./index_aux.php?file=teste04.php" target="_blank">Teste 04 - Menu PHP</a></li>
+<li><a href="./index_aux.php?file=teste05.php" target="_blank">Teste 05 - PHP CSS</a></li>
+<li><a href="./index_aux.php?file=teste06.php" target="_blank">Teste 06 - Upload Files</a></li>
+<li><a href="./index_aux.php?file=teste07.php" target="_blank">Teste 07 - Session</a></li>
+<li><a href="./index_aux.php?file=teste08.html" target="_blank">Teste 08 - MySQL</a></li>
+<li><a href="./index_aux.php?file=teste09.php" target="_blank">Teste 09 - POO</a></li>
+<li><a href="./index_aux.php?file=teste10.php" target="_blank">Teste 10 - ContaBanco</a></li>
+<li><a href="./index_aux.php?file=teste11.php" target="_blank">Teste 11 - ControleRemoto</a></li>
+<li><a href="./index_aux.php?file=teste12.php" target="_blank">Teste 12 - Relac Classes</a></li>
+<li><a href="./index_aux.php?file=teste13.php" target="_blank">Teste 13 - Eq. 2ºGrau POO</a></li>
+<li><a href="./index_aux.php?file=teste14.php" target="_blank">Teste 14 - Herança & Polim</a></li>
+<li><a href="./index_aux.php?file=teste15.php" target="_blank">Teste 15 - Segurança</a></li>
+                    <!-- FIM do /index.php -->
                     </ul>
                     <br>
 
