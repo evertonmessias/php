@@ -1,8 +1,15 @@
+<?php
+
+$nome="Éverton Messias";
+$fone="+55 19 995947383";
+$queryString='nome='.urlencode($nome).'&fone='.urlencode($fone);
+
+echo "
 <html>
 <head>
 <title>IMC</title>
-<meta charset="UTF-8"/>
-<style type="text/css">
+<meta charset='UTF-8'/>
+<style type='text/css'>
 fieldset{display: block;position: relative;margin: 0 auto; width: 370px;height: 40px;}
 ul{list-style: none;position: relative;display: block;margin-left:-20px;}
 li{display: inline-block;position: relative;margin-left: 20px;}
@@ -11,52 +18,42 @@ section{display: block;position: relative;margin: 0 auto; width: 1000px;height: 
 	border: 1px solid #aaa;padding:20px;text-align:center;}
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
 </head>
 <body>
-<form method="GET">
+<form method='GET'>
 <fieldset>
 
 <ul>
 
-<li><a href="?num=1">Home</a></li>
-<li><a href="?num=2">Fotos</a></li>
-<li><a href="?num=3">Contatos</a></li>
-<li><a href="?num=4">Redireciona</a></li>
+<li><a href='?num=1'>Home</a></li>
+<li><a href='?num=2'>Fotos</a></li>
+<li><a href='?num=3&$queryString'>Contatos</a></li>
+<li><a href='?num=4'>Redireciona</a></li>
 
 </ul>
-
 </fieldset>
 </form>
-
-<br>
-<hr>
-<br>
-
+<br><hr><br>
 <section>
-
-<?php
+";
 $pagina = @$_GET['num'];
 switch($pagina) {
 	case 1:
-	include('./pag1.html');
+	include('./pag1.php');
 	break;
 	case 2:
-	include('./pag2.html');
+	include('./pag2.php');
 	break;
 	case 3:
-	require('./pag3.html');
+	require('./pag3.php');
 	break;
 	case 4:
 	header('Location:./teste06.php');
 	break;
-	default:
-	include('./pag1.html');
 }
 ?>
-
 </section>
-
 </body>
 </html>
