@@ -1,8 +1,8 @@
 <?php
-
-$nome="Éverton Messias";
-$fone="+55 19 995947383";
-$queryString='nome='.urlencode($nome).'&fone='.urlencode($fone);
+$variaveis = array(
+"nome"=>"Éverton Messias",
+"fone"=>"+55 19 995947383"
+);
 
 echo "
 <html>
@@ -29,7 +29,7 @@ section{display: block;position: relative;margin: 0 auto; width: 1000px;height: 
 
 <li><a href='?num=1'>Home</a></li>
 <li><a href='?num=2'>Fotos</a></li>
-<li><a href='?num=3&$queryString'>Contatos</a></li>
+<li><a href='?num=3&".http_build_query($variaveis)."'>Contatos</a></li>
 <li><a href='?num=4'>Redireciona</a></li>
 
 </ul>
@@ -51,6 +51,9 @@ switch($pagina) {
 	break;
 	case 4:
 	header('Location:./teste06.php');
+	break;
+	default:
+	include('./pag1.php');
 	break;
 }
 ?>
