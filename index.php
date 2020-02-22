@@ -85,10 +85,10 @@
                     <ul>
                     <!-- INICIO do /index.php -->
 <li><a href="./index_aux.php?file=teste01.php" target="_blank">Teste 01 - Olá Mundo</a></li>
-<li><a href="./index_aux.php?file=teste02.php" target="_blank">Teste 02 - Básico</a></li>
+<li><a href="./index_aux.php?file=teste02.php" target="_blank">Teste 02 - Sintaxe Básica</a></li>
 <li><a href="./index_aux.php?file=teste03.php" target="_blank">Teste 03 - Ex. IMC</a></li>
-<li><a href="./index_aux.php?file=teste04.php" target="_blank">Teste 04 - Menu PHP</a></li>
-<li><a href="./index_aux.php?file=teste05.php" target="_blank">Teste 05 - PHP CSS</a></li>
+<li><a href="./index_aux.php?file=teste04.php" target="_blank">Teste 04 - Query String / Menu</a></li>
+<li><a href="./index_aux.php?file=teste05.php" target="_blank">Teste 05 - CSS com PHP</a></li>
 <li><a href="./index_aux.php?file=teste06.php" target="_blank">Teste 06 - Upload Files</a></li>
 <li><a href="./index_aux.php?file=teste07.php" target="_blank">Teste 07 - Cookie & Session</a></li>
 <li><a href="./index_aux.php?file=teste08.html" target="_blank">Teste 08 - MySQL</a></li>

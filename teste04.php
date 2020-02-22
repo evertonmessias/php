@@ -50,7 +50,7 @@ switch($pagina) {
 	include('./pag3.php');
 	break;
 	case 4:
-	header('Location:./teste06.php');
+	header('Location:./teste05.php');
 	break;
 	default:
 	include('./pag1.php');

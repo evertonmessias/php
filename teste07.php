@@ -32,6 +32,7 @@
         <br><br>
         <fieldset>
             <?php
+            //Session - lado servidor
             if (isset($_POST['sessao'])) { 
                 if($_POST['valor']){
                 print "<p>Valor da SESSION =>". $_POST['valor'];"</p><br>";
@@ -42,6 +43,7 @@
                     echo "<p>Digite Algo ..</p>";
                 }
             }
+            // Cookie - lado cliente
             if (isset($_POST['cookie'])) {
                 if($_POST['valor']){
                 print "<p>Valor da Cookie =>". $_POST['valor']."<br>(tempo: 1min)</p>";
