@@ -1,8 +1,14 @@
 <?php
 // Session
+session_id($_GET['PHPSESSID']); // antes do start !!!
 session_start();
 if (isset($_SESSION['strsessao'])) {    
     if (!isset($_POST['destruirS'])) {
+        if(!isset($_COOKIE['PHPSESSID'])){
+            echo "<p>(Cookies desativados !!!)</p>";
+        }else{
+            echo "<p>(Cookies ativos !!!)</p>";
+        }
         print "<p>O valor da Session é ==>". $_SESSION['strsessao']."</p>";        
     } else {
         unset($_SESSION['strsessao']);

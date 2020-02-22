@@ -35,10 +35,10 @@
             //Session - lado servidor
             if (isset($_POST['sessao'])) { 
                 if($_POST['valor']){
-                print "<p>Valor da SESSION =>". $_POST['valor'];"</p><br>";
+                print "<p>Valor da SESSION =>". $_POST['valor'];"</p><br>";                
                 session_start();
                 $_SESSION['strsessao'] = $_POST['valor'];
-                echo "<p><a href='./teste07-2.php'>Próx Pagina</a></p>";
+                echo "<p><a href='./teste07-2.php?PHPSESSID=".session_id()."'>Próx Pagina</a></p>";
                 }else{
                     echo "<p>Digite Algo ..</p>";
                 }

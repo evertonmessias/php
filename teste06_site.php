@@ -17,9 +17,8 @@ return "
 			background-color: #bbb;
 			font-family: Verdana;
 		}
-
-		input,
-		fieldset,
+		#area,
+		input,		
 		small,
 		img,
 		.resp {
@@ -27,15 +26,19 @@ return "
 			position: relative;
 			margin: 0 auto;
 		}
-
-		fieldset {
+		#area{
+		width:820px;
+		height:480px;				
+		}
+		fieldset.f1, fieldset.f2 {
 			top: 50px;
 			width: 350px;
 			min-height: 400px;
 			padding: 20px;
 			background-color: #fff;
 		}
-
+		.f1{float:left}
+		.f2{float:right;}
 		legend {
 			font-weight: bold;
 			text-align: center;
@@ -45,6 +48,7 @@ return "
 		small {
 			top: -20px;
 		}
+		.escrever{width:250px;}
 
 		small {
 			font-size: 10px;
