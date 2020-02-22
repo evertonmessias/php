@@ -47,7 +47,19 @@ echo \inicio\site();
                 } else {
                     echo "<p>Escolha um arquivo !!!</p>";
                 }
+            } else {
+                $pasta = 'img/';
+                $diretorio = dir($pasta);
+                echo "<p>Lista de Arquivos</p>";
+                while (($arquivo = $diretorio->read()) !== false) {
+                    if ($arquivo == "." || $arquivo == "..") {}
+                        else{                        
+                        echo '<a href=' . $pasta . $arquivo . '>' . $arquivo . '</a><br />';
+                    }
+                }
+                $diretorio->close();
             }
+
             ?>
         </div>
     </fieldset>
