@@ -32,25 +32,23 @@
         <br><br>
         <fieldset>
             <?php
-            if (isset($_POST['sessao'])) {  
-                $valor = $_POST['valor'];
-                if($valor){
-                print "<br>Valor da SESSION => $valor<br><br>";
+            if (isset($_POST['sessao'])) { 
+                if($_POST['valor']){
+                print "<p>Valor da SESSION =>". $_POST['valor'];"</p><br>";
                 session_start();
-                $_SESSION['string'] = $valor;
-                echo "<a href='./teste07-2.php'>Próx Pagina</a>";
+                $_SESSION['strsessao'] = $_POST['valor'];
+                echo "<p><a href='./teste07-2.php'>Próx Pagina</a></p>";
                 }else{
-                    echo "<br>Digite Algo ..";
+                    echo "<p>Digite Algo ..</p>";
                 }
             }
-            if (isset($_POST['cookie'])) {  
-                $valor = $_POST['valor'];
-                if($valor){
-                print "<br>Valor da Cookie => $valor ,<br>tempo: 1min<br><br>";
-                setcookie('string',$valor,time()+60,"/");                
-                echo "<a href='./teste07-2.php'>Próx Pagina</a>";
+            if (isset($_POST['cookie'])) {
+                if($_POST['valor']){
+                print "<p>Valor da Cookie =>". $_POST['valor']."<br>(tempo: 1min)</p>";
+                setcookie('strcookie',$_POST['valor'],time()+60,"/");                
+                echo "<p><a href='./teste07-2.php'>Próx Pagina</a></p>";
                 }else{
-                    echo "<br>Digite Algo ..";
+                    echo "<p>Digite Algo ..</p>";
                 }
             }
             ?>

@@ -1,18 +1,24 @@
 <?php
 // Session
 session_start();
-if (isset($_SESSION['string'])) {
-    $val = $_SESSION['string'];
-    if (isset($_POST['destruir'])) {
-        unset($_SESSION['string']);
-        print "<p>Session destruida !!</p>";
+if (isset($_SESSION['strsessao'])) {    
+    if (!isset($_POST['destruirS'])) {
+        print "<p>O valor da Session é ==>". $_SESSION['strsessao']."</p>";        
     } else {
-        print "<p>O valor da Session é ==> $val</p>";
+        unset($_SESSION['strsessao']);
+        print "<p>Session destruida !!</p>";        
     }
-    print "<form method='post'><button type='submit' name='destruir'>Destruir</button></form>";
+    print "<form method='post'><button type='submit' name='destruirS'>Destruir</button></form>";
 }
 // Cookie
-if (isset($_COOKIE['string'])) {
+if (isset($_COOKIE['strcookie'])) {
+    if (!isset($_POST['destruirC'])) {
+        print "<p>O valor do Cookie é ==>". $_COOKIE['strcookie']."</p>";        
+    } else {
+        setcookie('strcookie',"",time()-1,"/");
+        print "<p>Cookie destruido !!</p>";        
+    }
+    print "<form method='post'><button type='submit' name='destruirC'>Destruir</button></form>";
 }
 echo "<br><a href='./teste07.php'><b><= Voltar</b></a>";
 ?>
