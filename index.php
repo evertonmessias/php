@@ -90,7 +90,7 @@
 <li><a href="./index_aux.php?file=teste04.php" target="_blank">Teste 04 - Menu PHP</a></li>
 <li><a href="./index_aux.php?file=teste05.php" target="_blank">Teste 05 - PHP CSS</a></li>
 <li><a href="./index_aux.php?file=teste06.php" target="_blank">Teste 06 - Upload Files</a></li>
-<li><a href="./index_aux.php?file=teste07.php" target="_blank">Teste 07 - Session</a></li>
+<li><a href="./index_aux.php?file=teste07.php" target="_blank">Teste 07 - Cookie & Session</a></li>
 <li><a href="./index_aux.php?file=teste08.html" target="_blank">Teste 08 - MySQL</a></li>
 <li><a href="./index_aux.php?file=teste09.php" target="_blank">Teste 09 - POO</a></li>
 <li><a href="./index_aux.php?file=teste10.php" target="_blank">Teste 10 - ContaBanco</a></li>

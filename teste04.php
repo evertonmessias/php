@@ -47,7 +47,7 @@ switch($pagina) {
 	include('./pag2.php');
 	break;
 	case 3:
-	require('./pag3.php');
+	include('./pag3.php');
 	break;
 	case 4:
 	header('Location:./teste06.php');
