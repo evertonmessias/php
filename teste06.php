@@ -91,8 +91,10 @@ echo \inicio\site();
         }
         // botao 2 ativado
         if (isset($_POST['botao2'])) {
-            escrever($path, $_POST['escrever']);
-            ler($path);
+            $texto = $_POST['escrever'];
+            if($texto){
+            escrever($path, $texto);
+            ler($path);}else{echo "<p>Digite algo ..</p>";}
         } else {
             ler($path);
         }
