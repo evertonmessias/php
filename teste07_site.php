@@ -21,7 +21,7 @@ return "
 		input,		
 		small,
 		img,
-		.resp {
+		.resp,.login {
 			display: block;
 			position: relative;
 			margin: 0 auto;
@@ -30,20 +30,21 @@ return "
 		width:820px;
 		height:480px;				
 		}
-		fieldset.f1, fieldset.f2 {
+		fieldset {
+			display: block;
+			position: relative;
 			top: 50px;
-			width: 350px;
-			min-height: 400px;
+			width: 350px;			
 			padding: 20px;
 			background-color: #fff;
 		}
-		.f1{float:left}
-		.f2{float:right;}
+		.f0{margin: 0 auto;height:240px;}
+		.f1{float:left;min-height: 400px;}
+		.f2{float:right;min-height: 400px;}
 		legend {
 			font-weight: bold;
 			text-align: center;
 		}
-
 		input,
 		small {
 			top: -20px;
@@ -53,6 +54,9 @@ return "
 		small {
 			font-size: 10px;
 			left: 35px;
+		}
+		.login{top:-40px;;text-align:center;
+		font-size:10px;
 		}
 
 		.botao {
@@ -80,5 +84,3 @@ namespace fim{
 function site(){
 	return "</body></html>";
 }}
-
-?>
