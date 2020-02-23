@@ -22,7 +22,7 @@ sessao(basename(__FILE__));
         <li><a href="./index_aux.php?file=teste05.php" target="_blank">Teste 05 - CSS com PHP</a></li>
         <li><a href="./index_aux.php?file=teste06.php" target="_blank">Teste 06 - Cookie & Session</a></li>
         <li><a href="./index_aux.php?file=teste07.php" target="_blank">Teste 07 - Upload & File</a></li>
-        <li><a href="./index_aux.php?file=teste08.html" target="_blank">Teste 08 - MySQL</a></li>
+        <li><a href="./index_aux.php?file=teste08.php" target="_blank">Teste 08 - MySQL</a></li>
         <li><a href="./index_aux.php?file=teste09.php" target="_blank">Teste 09 - POO</a></li>
         <li><a href="./index_aux.php?file=teste10.php" target="_blank">Teste 10 - ContaBanco</a></li>
         <li><a href="./index_aux.php?file=teste11.php" target="_blank">Teste 11 - ControleRemoto</a></li>

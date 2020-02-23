@@ -1,4 +1,5 @@
 <?php
+
 namespace inicio {
 	function site()
 	{
@@ -17,12 +18,14 @@ namespace inicio {
 					background-color: #bbb;
 					font-family: Verdana;
 				}
+
 				#area,
 				input,
 				small,
 				img,
 				.resp,
-				.login {
+				.login,
+				#sitemysql {
 					display: block;
 					position: relative;
 					margin: 0 auto;
@@ -42,9 +45,14 @@ namespace inicio {
 					background-color: #fff;
 				}
 
-				.index {
+				.index
+				 {
 					margin: 0 auto;
 					min-height: 400px;
+				}
+				.form {
+					margin: 0 auto;
+					min-height: 250px;
 				}
 
 				.f0 {
@@ -103,6 +111,19 @@ namespace inicio {
 					text-align: center;
 				}
 
+				.servidor {
+					margin-top:-10px;
+					margin-left: 120px;
+					font-size: 13px;
+				}
+
+				.servidor input {
+					margin: 0;
+					padding: 0;
+					left: -20px;
+					top: 14px;
+				}
+
 				img {
 					width: 200px;
 				}
@@ -141,6 +162,80 @@ namespace inicio {
 					}
 
 				}
+				#sitemysql{
+					width: 650px;
+				}
+
+				h5 {
+					position: relative;
+					display: block;
+					width: 260px;
+					margin: 0 auto;
+					text-align: center;
+				}
+
+				h5.cons {
+					width: 300px;
+					border: 1px solid #bbb;
+					padding: 5px;
+					text-align: left;
+				}
+
+				#form1,
+				#form2,
+				#form3 {
+					display: block;
+					position: relative;
+					background-color: #ddd;
+					box-shadow: 3px 3px 5px black;
+				}
+
+				#form1 {
+					top: 5px;
+					width: 275px;
+					height: 250px;
+					float: left;
+				}
+
+				#form2 {
+					top: 5px;
+					width: 275px;
+					height: 250px;
+					float: right;
+				}
+
+				#form3 {
+					top: 10px;
+					width: 600px;
+					height: 100%;
+					margin: 0 auto;
+				}
+
+				legend {
+					font-weight: bold;
+					text-align: center;
+				}
+
+				.campo {
+					display: block;
+					position: relative;
+					width: 250px;
+					margin-bottom: 15px;
+					margin: 0 auto;
+				}
+
+				#user,
+				#pass {
+					background-color: #fff;
+					width: 170px;
+				}
+
+				#botao {
+					display: block;
+					position: relative;
+					width: 120px;
+					margin: 0 auto;
+				}
 			</style>
 		</head>
 
@@ -148,6 +243,7 @@ namespace inicio {
 	<?php
 	}
 }
+
 namespace fim {
 	function site()
 	{

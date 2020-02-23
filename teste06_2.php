@@ -14,6 +14,7 @@ if (isset($_SESSION['strsessao'])) {
         print "<p>O valor da Session é ==>". $_SESSION['strsessao']."</p>";        
     } else {
         unset($_SESSION['strsessao']);
+        session_destroy();
         print "<p>Session destruida !!</p>";        
     }
     print "<form method='post'><button type='submit' name='destruirS'>Destruir</button></form>";

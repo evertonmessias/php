@@ -1,4 +1,6 @@
 <?php
+include 'config.php';
+sessao("index.php");
 $arq = $_GET['file'];
 function lerArquivo($arq)
 {
