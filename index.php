@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['nome'])){
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -120,3 +124,8 @@
 </body>
 
 </html>
+<?php
+}else{
+    header('location:./login.php');
+}
+?>
