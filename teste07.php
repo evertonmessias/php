@@ -4,10 +4,10 @@ namespace inicio;
 
 namespace fim;
 
-include 'teste07_site.php';
+include 'htmlcss.php';
 echo \inicio\site();
-session_start();
-if (isset($_SESSION['nome'])){
+include 'config.php';
+sessao(basename(__FILE__));
 ?>
 <div id="area">
     <fieldset class='f1'>
@@ -54,8 +54,8 @@ if (isset($_SESSION['nome'])){
                 $diretorio = opendir($pasta);
                 echo "<p>Lista de Arquivos</p>";
                 while (($arquivo = readdir($diretorio)) !== false) {
-                    if ($arquivo == "." || $arquivo == "..") {}
-                        else{                        
+                    if ($arquivo == "." || $arquivo == "..") {
+                    } else {
                         echo '<a href=' . $pasta . $arquivo . '>' . $arquivo . '</a><br />';
                     }
                 }
@@ -94,9 +94,12 @@ if (isset($_SESSION['nome'])){
         // se botao 2 ativado
         if (isset($_POST['botao2'])) {
             $texto = $_POST['escrever'];
-            if($texto){
-            escrever($path, $texto);
-            ler($path);}else{echo "<p>Digite algo ..</p>";}
+            if ($texto) {
+                escrever($path, $texto);
+                ler($path);
+            } else {
+                echo "<p>Digite algo ..</p>";
+            }
         } else {
             ler($path);
         }
@@ -104,8 +107,5 @@ if (isset($_SESSION['nome'])){
     </fieldset>
 </div>
 <?php
-}else{
-    header('Location:./login.php');
-}
 echo \fim\site();
 ?>
