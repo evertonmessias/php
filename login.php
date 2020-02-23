@@ -13,7 +13,7 @@ echo \inicio\site();
         <legend>
             <h3>Login</h3>
         </legend><br>
-        <span class="login">(Para enviar arquivos precisa se logar)</span><br>
+        <span class="login">(Precisa se Logar)</span><br>
         <form method="POST">            
             <input type="text" name="user" placeholder="Usuario"><br>
             <input type="password" name="pass" placeholder="Senha"><br>
