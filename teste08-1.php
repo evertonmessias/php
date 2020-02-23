@@ -13,5 +13,5 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['server'] = $server;
     header('location:./teste08-2.php');
 } else {
-    header('location:./teste08.html');
+    header('location:./teste08.php');
 }
