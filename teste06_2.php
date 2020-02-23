@@ -1,6 +1,8 @@
 <?php
 // Session
+if(isset($_GET['PHPSESSID'])){
 session_id($_GET['PHPSESSID']); // antes do start !!!
+}
 session_start();
 if (isset($_SESSION['strsessao'])) {    
     if (!isset($_POST['destruirS'])) {
@@ -26,5 +28,5 @@ if (isset($_COOKIE['strcookie'])) {
     }
     print "<form method='post'><button type='submit' name='destruirC'>Destruir</button></form>";
 }
-echo "<br><a href='./teste07.php'><b><= Voltar</b></a>";
+echo "<br><a href='./teste06.php'><b><= Voltar</b></a>";
 ?>
