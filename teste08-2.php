@@ -166,7 +166,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['pass'])) {
 				<p><input type="submit" id="botao" name="consultar" value="CONSULTAR" /></p>
 				<?php
 				if (isset($_POST['consultar'])) {
-					$sql3 = "SELECT login.user, pessoas.nomecompleto from login LEFT JOIN pessoas ON login.id = pessoas.idlogin";
+					$sql3 = "SELECT * from login";
 					$query = mysqli_query($conexao, $sql3); // captura os dados
 					while ($vetor = mysqli_fetch_array($query)) {			 // matriz_de_busca ; traz um por um das linhas de registros
 						print "<h5 class='cons'> $vetor[0] - $vetor[1] </h5><br>";
