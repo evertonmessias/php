@@ -30,7 +30,7 @@ sessao(basename(__FILE__));
         <li><a href="./index_aux.php?file=teste13.php" target="_blank">Teste 13 - Eq. 2ºGrau POO</a></li>
         <li><a href="./index_aux.php?file=teste14.php" target="_blank">Teste 14 - Herança & Polim</a></li>
         <li><a href="./index_aux.php?file=teste15.php" target="_blank">Teste 15 - Segurança</a></li>
-        <!-- FIM do /index.php --><br>
+        <!-- FIM do /index.php -->
         <li><a href="./index.php" target="_blank"><b>(Fontes)</b></a></li>
     </ul>
     <br>
