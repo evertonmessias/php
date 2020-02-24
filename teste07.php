@@ -57,7 +57,8 @@ sessao(basename(__FILE__));
                 while (($arquivo = readdir($diretorio)) !== false) {
                     if ($arquivo == "." || $arquivo == "..") {
                     } else {
-                        echo "<tr><td class='col1'><a href='" . $pasta . $arquivo . "'>" . $arquivo . "</a></td><td>".number_format(((filesize($pasta.$arquivo))/1024),1)." KB</td></tr>";
+                        echo "<tr><td class='col1'><a href='" . $pasta . $arquivo . "'>" . $arquivo . "</a></td>
+                        <td>".number_format(((filesize($pasta.$arquivo))/1024),1)." KB</td></tr>";
                     }
                 }
                 echo "</table>";
@@ -77,8 +78,14 @@ sessao(basename(__FILE__));
         </form>
         <?php
         $path = './log/portfolio.txt';
+        /*
+        copy(original,final);
+        rename(original,final);
+        unlink(arquivo);
+        */
         function ler($path) // ler arquivo
         {
+            if(file_exists($path)){
             $arquivo = fopen($path, 'r');
             while ($linha = fgets($arquivo)) {                
                 echo $linha."<br>";                
@@ -93,6 +100,9 @@ sessao(basename(__FILE__));
             $arquivo = file_get_contents($path);
             echo $arquivo;
             */
+        }else{
+            echo "O arquivo $path não existe!";
+        }
         }
         function escrever($path, $texto) // gravar arquivo
         {
