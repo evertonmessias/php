@@ -11,7 +11,8 @@ if (mysqli_num_rows($result) > 0) {
     session_start();
     $_SESSION['user'] = $user;
     $_SESSION['server'] = $server;
-    header('location:./teste08-2.php');
+    //header('location:./teste08-2.php');
+    echo "<script>window.location.href = './teste08-2.php'</script>";
 } else {
-    header('location:./teste08.php');
+    echo "Usuario ou Senha inválidos!";
 }

@@ -52,7 +52,7 @@ namespace inicio {
 				}
 				.form {
 					margin: 0 auto;
-					min-height: 250px;
+					height: 280px;
 				}
 
 				.f0 {
@@ -216,13 +216,14 @@ namespace inicio {
 					text-align: center;
 				}
 
-				.campo {
+				.campo1, .campo2 {
 					display: block;
 					position: relative;
 					width: 250px;
 					margin-bottom: 15px;
 					margin: 0 auto;
 				}
+		
 
 				#user,
 				#pass {

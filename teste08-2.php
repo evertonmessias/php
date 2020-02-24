@@ -28,8 +28,8 @@ if (sessao_mysql()) {
     <fieldset id="form1">
         <form method="POST">
             <legend>Cadastrar</legend><br><br>
-            <p class="campo">User :&ensp;<input type="text" name="nuser" placeholder=" Usuario" required /></p><br>
-            <p class="campo">Pass :&ensp;<input type="password" id="pass" name="npass" placeholder=" Senha" required /></p><br>
+            <p><input type="text" class="campo" name="nuser" placeholder=" Usuario" required /></p>
+            <p><input type="password" class="campo" name="npass" placeholder=" Senha" required /></p>
             <p><input type="submit" name="add_user" value="CADASTRAR" /></p>
             <?php
             if (isset($_POST['add_user'])) {
@@ -56,8 +56,8 @@ if (sessao_mysql()) {
         <form method="POST">
 
             <legend>Apagar</legend><br><br>
-            <p class="campo">User :&ensp;<input type="text" name="user" placeholder=" Usuario" required /></p><br>
-            <br><br>
+            <p><input type="text" class="campo" name="user" placeholder=" Usuario" required /></p>
+            <br>
             <p><input type="submit" name="del_user" value="APAGAR" /></p>
             <?php
             if (isset($_POST['del_user'])) {
