@@ -17,7 +17,7 @@ sessao(basename(__FILE__));
         <form method="POST" enctype="multipart/form-data">
             <input type="hidden" name="MAX_FILE_SIZE" value="1048576‬">
             <input type="file" name="arquivo">
-            <small>Tamanho máx. 1MB</small>
+            <small class='file'>Tamanho máx. 1MB</small>
             <br>
             <input type="submit" class="botao" name="botao" value="Enviar" />
         </form>
@@ -52,13 +52,15 @@ sessao(basename(__FILE__));
             } else { // Lista diretorio
                 $pasta = 'img/';
                 $diretorio = opendir($pasta);
-                echo "<p>Lista de Arquivos</p>";
+                echo "<p>Lista de Arquivos</p><br><table class='arquivos'>";
+                echo "<tr><th class='col1'>Name</th><th>Size</th></tr>";                
                 while (($arquivo = readdir($diretorio)) !== false) {
                     if ($arquivo == "." || $arquivo == "..") {
                     } else {
-                        echo '<a href=' . $pasta . $arquivo . '>' . $arquivo . '</a><br />';
+                        echo "<tr><td class='col1'><a href='" . $pasta . $arquivo . "'>" . $arquivo . "</a></td><td>".number_format(((filesize($pasta.$arquivo))/1024),1)." KB</td></tr>";
                     }
                 }
+                echo "</table>";
                 closedir($diretorio);
             }
 

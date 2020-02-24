@@ -25,14 +25,15 @@ namespace inicio {
 				img,
 				.resp,
 				.login,
-				#sitemysql {
+				#sitemysql,
+				table.arquivos {
 					display: block;
 					position: relative;
 					margin: 0 auto;
 				}
 
 				#area {
-					width: 820px;
+					width: 950px;
 					height: 480px;
 				}
 
@@ -61,11 +62,12 @@ namespace inicio {
 				}
 
 				.f1 {
+					width: 500px;
 					float: left;
 					min-height: 400px;
 				}
 
-				.f2 {
+				.f2 {					
 					float: right;
 					min-height: 400px;
 				}
@@ -86,7 +88,9 @@ namespace inicio {
 
 				small {
 					font-size: 10px;
-					left: 35px;
+				}
+				small.file{
+					left:110px
 				}
 
 				.login {
@@ -223,8 +227,23 @@ namespace inicio {
 					margin-bottom: 15px;
 					margin: 0 auto;
 				}
-		
-
+				table.arquivos{
+					width: 420px;
+					margin: 0 auto;
+					font-size: 12px;
+					border-spacing: 0px;
+					text-align: left;
+				}
+				table.arquivos .col1{
+					width: 350px;
+				}
+				table.arquivos td,table.arquivos th{
+					padding-left: 4px;									
+					border: 1px solid #404040;
+				}
+				table.arquivos th{
+					background-color: #ccc;
+				}
 				#user,
 				#pass {
 					background-color: #fff;
