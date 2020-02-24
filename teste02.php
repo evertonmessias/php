@@ -143,8 +143,8 @@ echo "MATRIZ 0,1 = ".$matriz[0][1];
 
 echo "<br><br>";echo "<br><br>";
 
+echo "<fieldset style='width:50%;text-align:center;'><legend>DATA & HORA</legend><br><br>";
 //Função date()
-//para inserir no site use : include("site.php");
 $sem = date ("w");
 $SEM = array("domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado");
 $dia = date("d");
@@ -152,7 +152,7 @@ $mes = date("m");
 $MES = array("01"=>"janeiro","02"=>"fevereiro","03"=>"março","04"=>"abril","05"=>"maio","06"=>"junho","07"=>"julho","08"=>"agosto","09"=>"setembro","10"=>"outubro","11"=>"novembro","12"=>"dezembro");
 $ano = date("Y");
 echo ">>>>>    $SEM[$sem], $dia de $MES[$mes] de $ano   <<<<<<<<<";
-
+echo "<br><br></fieldset>";
 
 echo "<br><br>";echo "<br><br>";
 

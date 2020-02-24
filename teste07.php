@@ -51,20 +51,22 @@ sessao(basename(__FILE__));
                 }
             } else { // Lista diretorio
                 $pasta = 'img/';
+                // chdir(muda_pasta);
+                // mkdir(nova_pasta);
+                // rmdir(remove_pasta);
                 $diretorio = opendir($pasta);
+                //$diretorio = scandir($pasta); ==> array
                 echo "<p>Lista de Arquivos</p><br><table class='arquivos'>";
-                echo "<tr><th class='col1'>Name</th><th>Size</th></tr>";                
-                while (($arquivo = readdir($diretorio)) !== false) {
-                    if ($arquivo == "." || $arquivo == "..") {
-                    } else {
+                echo "<tr><th class='col1'>Name</th><th>Size</th></tr>";
+                while ($arquivo = readdir($diretorio)) {
+                    if ($arquivo != '.' && $arquivo != '..') {
                         echo "<tr><td class='col1'><a href='" . $pasta . $arquivo . "'>" . $arquivo . "</a></td>
-                        <td>".number_format(((filesize($pasta.$arquivo))/1024),1)." KB</td></tr>";
+                        <td>" . number_format(((filesize($pasta . $arquivo)) / 1024), 1) . " KB</td></tr>";
                     }
                 }
                 echo "</table>";
                 closedir($diretorio);
             }
-
             ?>
         </div>
     </fieldset>
@@ -85,24 +87,24 @@ sessao(basename(__FILE__));
         */
         function ler($path) // ler arquivo
         {
-            if(file_exists($path)){
-            $arquivo = fopen($path, 'r');
-            while ($linha = fgets($arquivo)) {                
-                echo $linha."<br>";                
-            }
-            fclose($arquivo);            
-            /*
+            if (file_exists($path)) {
+                $arquivo = fopen($path, 'r');
+                while ($linha = fgets($arquivo)) {
+                    echo $linha . "<br>";
+                }
+                fclose($arquivo);
+                /*
             $arquivo = file($path); // file converte para array
             foreach($arquivo as $linha){
                 echo $linha."<br>";
             }*/
-            /*
+                /*
             $arquivo = file_get_contents($path);
             echo $arquivo;
             */
-        }else{
-            echo "O arquivo $path não existe!";
-        }
+            } else {
+                echo "O arquivo $path não existe!";
+            }
         }
         function escrever($path, $texto) // gravar arquivo
         {
