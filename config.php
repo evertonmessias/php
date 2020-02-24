@@ -20,7 +20,6 @@ function sessao_mysql()
 
 define('USERNAME', 'everton');
 define('PASSWORD', 'notreve');
-define('', '');
 
 function servidor($local)
 {
