@@ -79,16 +79,20 @@ sessao(basename(__FILE__));
         $path = './log/portfolio.txt';
         function ler($path) // ler arquivo
         {
-            /*$arquivo = fopen($path, 'r');
-            while (true) {
-                $linha = fgets($arquivo);
-                echo "$linha<br>";
-                if ($linha == null) break;
-            }fclose($arquivo);*/
+            $arquivo = fopen($path, 'r');
+            while ($linha = fgets($arquivo)) {                
+                echo $linha."<br>";                
+            }
+            fclose($arquivo);            
+            /*
             $arquivo = file($path); // file converte para array
             foreach($arquivo as $linha){
                 echo $linha."<br>";
-            }            
+            }*/
+            /*
+            $arquivo = file_get_contents($path);
+            echo $arquivo;
+            */
         }
         function escrever($path, $texto) // gravar arquivo
         {
