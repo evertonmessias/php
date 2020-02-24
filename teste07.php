@@ -69,7 +69,7 @@ sessao(basename(__FILE__));
     </fieldset>
     <fieldset class='f2'>
         <legend>
-            <h2>Escrever no Arquivo.TXT</h2>
+            <h2>Escrever no Texto</h2>
         </legend>
         <form method="POST"><br>
             <input type="text" class='escrever' name="escrever"><br>
@@ -79,18 +79,21 @@ sessao(basename(__FILE__));
         $path = './log/portfolio.txt';
         function ler($path) // ler arquivo
         {
-            $arquivo = fopen($path, 'r');
+            /*$arquivo = fopen($path, 'r');
             while (true) {
                 $linha = fgets($arquivo);
                 echo "$linha<br>";
                 if ($linha == null) break;
-            }
-            fclose($arquivo);
+            }fclose($arquivo);*/
+            $arquivo = file($path); // file converte para array
+            foreach($arquivo as $linha){
+                echo $linha."<br>";
+            }            
         }
         function escrever($path, $texto) // gravar arquivo
         {
-            $arquivo = fopen($path, 'a+'); //a crescenta, w novo
-            fwrite($arquivo, $texto . "\n");
+            $arquivo = fopen($path, 'a+'); //'a' cria se ñ existir e crescenta valor
+            fwrite($arquivo, $texto . "\n"); // 'w' cria se ñ existir e altera valor
             fclose($arquivo);
         }
         // se botao 2 ativado
