@@ -6,6 +6,58 @@
 // Sintaxes Básicas **********************************************
 //****************************************************************
 
+echo "<fieldset style='width:50%;'><legend><strong>DATA & HORA</strong></legend><br>";
+//Funçoes de tempo
+
+echo "<b>time() => ".time()."</b> (segundos desde 01/01/1970 as 0:00h)";
+echo "<br><hr><br>";
+// Localtime()
+$tempo = localtime(time(),true);
+echo "<b>\$tempo = localtime(time(),true);</b><br>";
+echo "<b>segundos => </b>\$tempo['tm_sec'] => ".$tempo['tm_sec']."<br>";
+echo "<b>minutos => </b>\$tempo['t_min'] => ".$tempo['tm_min']."<br>";
+echo "<b>horas = => </b>\$tempo['t_hour'] => ".$tempo['tm_hour']."<br>";
+echo "<b>dia = => </b>\$tempo['t_mday'] => ".$tempo['tm_mday']."<br>";
+echo "<b>mês = => </b>\$tempo['t_mon'] => ".$tempo['tm_mon']."<br>";
+echo "<b>anos desde 1900 => </b>\$tempo['t_year ='] => ".$tempo['tm_year']."<br>";
+echo "<b>semana = => </b>\$tempo['t_wday'] => ".$tempo['tm_wday']."<br>";
+echo "<b>dia ano = => </b>\$tempo['t_yday'] => ".$tempo['tm_yday']."<br>";
+echo "<b>verão = => </b>\$tempo['t_isdst'] => ".$tempo['tm_isdst']."<br>";
+echo "<br><hr><br>";
+// getdate()
+$datas = getdate();
+echo "<b>getdate() => </b><br>";
+print_r($datas);
+echo "<br><hr><br>";
+// DATE()
+echo date('d-m-Y')."<br>";
+$sem = date("w");
+$SEM = array("domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado");
+$dia = date("d");
+$mes = date("m");
+$MES = array("01"=>"janeiro","02"=>"fevereiro","03"=>"março","04"=>"abril","05"=>"maio","06"=>"junho","07"=>"julho","08"=>"agosto","09"=>"setembro","10"=>"outubro","11"=>"novembro","12"=>"dezembro");
+$ano = date("Y");
+echo "$SEM[$sem], $dia de $MES[$mes] de $ano (problema de fuso horário!)";
+
+echo "<br><hr>";
+
+echo "<h3>Solução pra fuso horário:</h3>";
+
+function _date($format, $timezone)
+{
+	$timestamp=false;
+	$defaultTimeZone='UTC';
+	if(date_default_timezone_get() != $defaultTimeZone) date_default_timezone_set($defaultTimeZone);
+    $userTimezone = new DateTimeZone(!empty($timezone) ? $timezone : 'GMT');
+    $gmtTimezone = new DateTimeZone('GMT');
+    $myDateTime = new DateTime(($timestamp!=false?date("r",(int)$timestamp):date("r")), $gmtTimezone);
+    $offset = $userTimezone->getOffset($myDateTime);
+    return date($format, ($timestamp!=false?(int)$timestamp:$myDateTime->format('U')) + $offset);
+}
+$dataVERDADEIRA = _date("d-m-Y , H:i:s", 'America/Sao_Paulo');
+echo 'São Paulo: '.$dataVERDADEIRA;
+echo "<br><br></fieldset>";
+echo "<br><br>";
 
 // PHP não se preocupa com declaração de variáveis  **************
 
@@ -138,24 +190,12 @@ $matriz = array(array(1,2),
 					 array(5,6)
 );
 
-echo "MATRIZ 0,1 = ".$matriz[0][1];
+echo "MATRIZ 0,1 ='] => ".$matriz[0][1];
 
 
 echo "<br><br>";echo "<br><br>";
 
-echo "<fieldset style='width:50%;text-align:center;'><legend>DATA & HORA</legend><br><br>";
-//Função date()
-$sem = date ("w");
-$SEM = array("domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado");
-$dia = date("d");
-$mes = date("m");
-$MES = array("01"=>"janeiro","02"=>"fevereiro","03"=>"março","04"=>"abril","05"=>"maio","06"=>"junho","07"=>"julho","08"=>"agosto","09"=>"setembro","10"=>"outubro","11"=>"novembro","12"=>"dezembro");
-$ano = date("Y");
-echo ">>>>>    $SEM[$sem], $dia de $MES[$mes] de $ano   <<<<<<<<<";
-echo "<br><br></fieldset>";
-
-echo "<br><br>";echo "<br><br>";
-
+echo "<br><br>";
 
 // String (são muitas, melhor pesquisar qdo precisar !! *********************
 
