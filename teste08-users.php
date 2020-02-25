@@ -1,30 +1,9 @@
 <?php
-
-namespace inicio;
-
-namespace fim;
-
-include 'htmlcss.php';
-include 'config.php';
-echo \inicio\site();
-if (sessao_mysql()) {
-    $user = $_SESSION['user'];
-    $server = $_SESSION['server'];
-    servidor($server);
-    $conexao = mysqli_connect(servidor, usuario, senha, banco); // conecta
+if(!isset($_SESSION['user'])){
+    header('location:./teste08.php');
 }
 ?>
-<h5><?php print "$user<br><form method='GET'><button type='submit' name='exit'>sair</button></form>";
-    if (isset($_GET['exit'])) {
-        unset($_SESSION['user']);
-        unset($_SESSION['server']);
-        session_destroy();
-        header('location:./teste08.php');
-    }
-    ?></h5>
-<hr>
 <!-- *************************** ADD USER *********************************** -->
-<div id="sitemysql">
     <fieldset id="form1">
         <form method="POST">
             <legend>Cadastrar</legend><br><br>
@@ -49,7 +28,6 @@ if (sessao_mysql()) {
             ?>
         </form>
     </fieldset>
-
 
     <!-- *************************** DEL USER *********************************** -->
     <fieldset id="form2">
@@ -95,7 +73,4 @@ if (sessao_mysql()) {
 
         </form>
     </fieldset>
-</div>
-<?php
-echo \fim\site();
-?>
+    <br><br><br>

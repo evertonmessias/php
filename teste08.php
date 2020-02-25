@@ -1,9 +1,6 @@
 <?php
-
 namespace inicio;
-
 namespace fim;
-
 include 'htmlcss.php';
 include 'config.php';
 echo \inicio\site();
@@ -31,7 +28,7 @@ echo \inicio\site();
                     var user = $('#user').val();
                     var pass = $('#pass').val();
                     var server = $("input[type='radio']:checked").val();
-                    $.post('./teste08-1.php', {
+                    $.post('./teste08-login.php', {
                         user: user,
                         pass,
                         pass,

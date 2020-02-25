@@ -26,7 +26,7 @@ function servidor($local)
     if ($local == 'i') {
         define("servidor", "localhost");
         define("usuario", "root");
-        define("senha", "");
+        define("senha", "efc2505xx");
         define("banco", "teste");
     } elseif ($local == 'e') {
         define("servidor", "remotemysql.com");

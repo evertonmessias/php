@@ -1,12 +1,8 @@
 <?php
-
 namespace inicio {
-	function site()
-	{
-?>
-		<!DOCTYPE html>
+	function site(){
+		return "		
 		<html lang='pt-br'>
-
 		<head>
 			<meta charset='UTF-8' />
 			<title>Envio de Arquivo</title>
@@ -18,7 +14,6 @@ namespace inicio {
 					background-color: #bbb;
 					font-family: Verdana;
 				}
-
 				#area,
 				input,
 				small,
@@ -26,7 +21,8 @@ namespace inicio {
 				.resp,
 				.login,
 				#sitemysql,
-				table.arquivos {
+				table.arquivos,
+				#menu {
 					display: block;
 					position: relative;
 					margin: 0 auto;
@@ -46,11 +42,11 @@ namespace inicio {
 					background-color: #fff;
 				}
 
-				.index
-				 {
+				.index {
 					margin: 0 auto;
 					min-height: 400px;
 				}
+
 				.form {
 					margin: 0 auto;
 					height: 280px;
@@ -67,7 +63,7 @@ namespace inicio {
 					min-height: 400px;
 				}
 
-				.f2 {					
+				.f2 {
 					float: right;
 					min-height: 400px;
 				}
@@ -89,8 +85,9 @@ namespace inicio {
 				small {
 					font-size: 10px;
 				}
-				small.file{
-					left:110px
+
+				small.file {
+					left: 110px
 				}
 
 				.login {
@@ -116,7 +113,7 @@ namespace inicio {
 				}
 
 				.servidor {
-					margin-top:-10px;
+					margin-top: -10px;
 					margin-left: 120px;
 					font-size: 13px;
 				}
@@ -166,7 +163,8 @@ namespace inicio {
 					}
 
 				}
-				#sitemysql{
+
+				#sitemysql {
 					width: 650px;
 				}
 
@@ -211,7 +209,7 @@ namespace inicio {
 				#form3 {
 					top: 10px;
 					width: 600px;
-					height: 100%;
+					min-height: 200px;
 					margin: 0 auto;
 				}
 
@@ -220,30 +218,37 @@ namespace inicio {
 					text-align: center;
 				}
 
-				.campo1, .campo2 {
+				.campo1,
+				.campo2 {
 					display: block;
 					position: relative;
 					width: 250px;
 					margin-bottom: 15px;
 					margin: 0 auto;
 				}
-				table.arquivos{
+
+				table.arquivos {
 					width: 420px;
 					margin: 0 auto;
 					font-size: 12px;
 					border-spacing: 0px;
 					text-align: left;
 				}
-				table.arquivos .col1{
+
+				table.arquivos .col1 {
 					width: 350px;
 				}
-				table.arquivos td,table.arquivos th{
-					padding-left: 4px;									
+
+				table.arquivos td,
+				table.arquivos th {
+					padding-left: 4px;
 					border: 1px solid #404040;
 				}
-				table.arquivos th{
+
+				table.arquivos th {
 					background-color: #ccc;
 				}
+
 				#user,
 				#pass {
 					background-color: #fff;
@@ -256,14 +261,35 @@ namespace inicio {
 					width: 120px;
 					margin: 0 auto;
 				}
+				#menu {
+					width: 400px;
+					height: 40px;
+				}
+				ul.menu {
+					list-style: none;
+					position: relative;
+					display: block;
+					margin-left: -20px;
+				}
+
+				ul.menu li {
+					display: inline-block;
+					position: relative;
+					margin-left: 20px;
+				}
+
+				ul.menu li a {
+					background-color: #808080;
+					color: white;
+					padding: 5px;
+					text-decoration: none;
+				}
 			</style>
 		</head>
-
 		<body>
-	<?php
-	}
+	";
 }
-
+}
 namespace fim {
 	function site()
 	{
