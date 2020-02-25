@@ -11,6 +11,7 @@ if (sessao_mysql()) {
     $conexao = mysqli_connect(servidor, usuario, senha, banco); // conecta
 }
 ?>
+<nav>
 <fieldset id='menu'>
 <form method='GET'>
 <ul class='menu'>
@@ -21,7 +22,7 @@ if (sessao_mysql()) {
 </ul>
 </form>
 </fieldset>
-<br><br><br><hr><br><br>
+</nav>
 <section id="sitemysql">
 <?php
 $pagina = @$_GET['p'];

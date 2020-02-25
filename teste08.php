@@ -5,14 +5,14 @@ include 'htmlcss.php';
 include 'config.php';
 echo \inicio\site();
 ?>
-<fieldset class="form">
+<fieldset class="formlogin">
     <form method="POST" id="form" action="teste08-1.php">
         <legend>Login</legend><br><br>
         <p class="campo"><input type="text" id="user" name="user" placeholder=" Usuario" required /></p>
         <p class="campo"><input type="password" id="pass" name="pass" placeholder=" Senha" required /></p>
         <p class="servidor">
-            <input type="radio" name="server" value="i">Servidor Interno<br>
-            <input type="radio" name="server" value="e">Servidor Externo
+            <label><input type="radio" name="server" value="i">&ensp;Servidor Interno</label><br>
+            <label><input type="radio" name="server" value="e">&ensp;Servidor Externo</label>
         </p>
         <br>
         <p><input type="button" id="botao" value="OK" /></p><br>
