@@ -8,11 +8,10 @@ function sessao($arquivo)
 }
 
 function sessao_mysql()
-{
-    session_start();
+{    
     if (!isset($_SESSION['user'])) {
-        header('location:./teste08.php');
         return false;
+        header('location:./teste08.php');        
     }else{
         return true;
     }

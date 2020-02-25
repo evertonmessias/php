@@ -4,11 +4,10 @@ namespace fim;
 include 'htmlcss.php';
 include 'config.php';
 echo \inicio\site();
+session_start();
 if (sessao_mysql()) {
     $user = $_SESSION['user'];
-    $server = $_SESSION['server'];
-    servidor($server);
-    $conexao = mysqli_connect(servidor, usuario, senha, banco); // conecta
+    $server = $_SESSION['server'];    
 }
 ?>
 <nav>
@@ -21,6 +20,7 @@ if (sessao_mysql()) {
 <li><a href='?p=sair'>Sair</a></li>
 </ul>
 </form>
+<?php echo "<small class='user'><b>($user)</b></small>";?>
 </fieldset>
 </nav>
 <section id="sitemysql">

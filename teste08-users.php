@@ -1,9 +1,11 @@
 <?php
-if(!isset($_SESSION['user'])){
-    header('location:./teste08.php');
+if(sessao_mysql()){
+    servidor($server);
+    $conexao = mysqli_connect(servidor, usuario, senha, banco); // conecta
 }
 ?>
 <!-- *************************** ADD USER *********************************** -->
+<h2>USUARIOS</h2>
     <fieldset id="form1">
         <form method="POST">
             <legend>Cadastrar</legend><br><br>

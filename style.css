@@ -105,6 +105,11 @@ input[type='radio']:checked:after {
 small {
     font-size: 10px;
 }
+small.user{
+    top:-80px;
+    left: -48px;
+    float: right;
+}
 
 small.file {
     left: 110px
@@ -238,7 +243,10 @@ legend {
     margin-bottom: 15px;
     margin: 0 auto;
 }
-
+h2{    
+    background-color: #ccc;
+    text-align: center;
+}
 table.arquivos {
     width: 420px;
     margin: 0 auto;
@@ -259,6 +267,11 @@ table.arquivos th {
 
 table.arquivos th {
     background-color: #ccc;
+}
+
+table#pessoas{
+    font-size: 14px;
+    margin-left: 100px;
 }
 
 #user,
