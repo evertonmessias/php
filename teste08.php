@@ -6,7 +6,7 @@ include 'config.php';
 echo \inicio\site();
 ?>
 <fieldset class="formlogin">
-    <form method="POST" id="form" action="teste08-1.php">
+    <form method="POST" id="form">
         <legend>Login</legend><br><br>
         <p class="campo"><input type="text" id="user" name="user" placeholder=" Usuario" required /></p>
         <p class="campo"><input type="password" id="pass" name="pass" placeholder=" Senha" required /></p>
