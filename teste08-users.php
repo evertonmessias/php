@@ -41,22 +41,22 @@ if(sessao_mysql()){
         <form method="POST">
 
             <legend>Apagar</legend><br><br>
-            <p><input type="text" class="campo" name="user" placeholder=" Usuario" required /></p>
+            <p><input type="number" class="campo" name="iduser" placeholder=" ID Usuario" required /></p>
             <br>
             <p><input type="submit" name="del_user" value="APAGAR" /></p>
             <?php
             if (isset($_POST['del_user'])) {
-                $user = $_POST['user'];
-                $sql2 = "SELECT * FROM login WHERE user = '$user'";
+                $iduser = $_POST['iduser'];
+                $sql2 = "SELECT id FROM login WHERE id = '$iduser'";
                 $result = $conexao->query($sql2);
                 $busca = false;
                 foreach ($result as $linha){
-                    if($linha['user']==$user)$busca = true;
+                    if($linha['id']==$iduser)$busca = true;
                 }
                 if ($busca) {
-                    $sql22 = "DELETE FROM login WHERE user = '$user'";
+                    $sql22 = "DELETE FROM login WHERE id = '$iduser'";
                     $conexao->query($sql22);
-                    print "<h5>Usuario Apagado => $user </h5>";
+                    print "<h5>Usuario Apagado => $iduser </h5>";
                 } else {
                     print "<h5>Usuario Não Encontrado !! </h5>";
                 }
