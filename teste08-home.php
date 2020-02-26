@@ -1,6 +1,7 @@
 <?php
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header('location:./teste08.php');
+} else {
+    echo "<h2>HOME</h2>";    
 }
 ?>
-<h2>HOME</h2>

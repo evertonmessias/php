@@ -7,16 +7,6 @@ function sessao($arquivo)
     }
 }
 
-function sessao_mysql()
-{    
-    if (!isset($_SESSION['user'])) {
-        return false;
-        header('location:./teste08.php');        
-    }else{
-        return true;
-    }
-}
-
 define('USERNAME', 'everton');
 define('PASSWORD', 'notreve');
 

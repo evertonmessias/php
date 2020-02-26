@@ -1,5 +1,7 @@
 <?php
-if (sessao_mysql()) {
+if (!isset($_SESSION['user'])) {
+    header('location:./teste08.php');
+} else {
     servidor($server);
     // conexão com PDO
     $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
