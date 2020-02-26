@@ -20,23 +20,25 @@ if (sessao_mysql()) {
         <legend>Cadastrar</legend><br><br>
         <p><input type="text" class="campo" name="nnome" placeholder=" Nome" required /></p>
         <p><input type="fone" class="campo" name="ntelefone" placeholder=" Telefone" required /></p>
+        <p><input type="mail" class="campo" name="nemail" placeholder=" E-Mail" required /></p>
         <p><input type="submit" name="add_nome" value="CADASTRAR" /></p>
         <?php
         if (isset($_POST['add_nome'])) {
             $nnome = $_POST['nnome'];
             $ntelefone = $_POST['ntelefone'];
+            $nemail = $_POST['nemail'];
             $sql0 = "SELECT * FROM pessoas WHERE nome = '$nnome'";
             $result = $conexaoPDO->query($sql0);
             $busca = false;
             foreach ($result as $linha){
-                if($linha[1]==$nnome)$busca = true;
+                if($linha['nome']==$nnome)$busca = true;
             }
             if ($busca) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
-                $sql1 = "INSERT INTO pessoas (id, nome, telefone,email) VALUES (default, '$nnome', '$ntelefone','asdf@asdf')";
+                $sql1 = "INSERT INTO pessoas (id, nome, telefone,email) VALUES (default, '$nnome', '$ntelefone','$nemail')";
                 $conexaoPDO->query($sql1);
-                print "<h5>Adicionado: $nnome , Telefone: $ntelefone </h5>";
+                print "<h5>Adicionado: $nnome<br>Telefone: $ntelefone<br>E-Mail: $nemail</h5>";
             }
         }
         ?>
@@ -58,7 +60,7 @@ if (sessao_mysql()) {
             $result = $conexaoPDO->query($sql2);
             $busca = false;
             foreach ($result as $linha){
-                if($linha[1]==$nome)$busca = true;
+                if($linha['nome']==$nome)$busca = true;
             }
             if ($busca) {
                 $sql22 = "DELETE FROM pessoas WHERE nome = '$nome'";
@@ -85,7 +87,7 @@ if (sessao_mysql()) {
             $query = $conexaoPDO->query($sql3); // captura os dados
             echo "<table class='pessoas'><tr><th>ID</th><th>Nome</th><th>Telefone</th><th>E-Mail</th></tr>";
             foreach ($query as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
-                print "<tr><td>$vetor[0]</td><td>$vetor[1]</td><td>$vetor[2]</td><td>$vetor[3]</td></tr>";
+                print "<tr><td>$vetor[id]</td><td>$vetor[nome]</td><td>$vetor[telefone]</td><td>$vetor[email]</td></tr>";
             }echo "</table>";
         }
         ?>
