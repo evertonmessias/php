@@ -1,7 +1,8 @@
 <?php
 if(sessao_mysql()){
     servidor($server);
-    $conexao = mysqli_connect(servidor, usuario, senha, banco); // conecta
+    // conexão com MySQLi
+    $conexao = new mysqli(servidor, usuario, senha, banco);
 }
 ?>
 <!-- *************************** ADD USER *********************************** -->
@@ -18,12 +19,16 @@ if(sessao_mysql()){
                 $npass = $_POST['npass'];
                 $npassMD5 = md5($npass);
                 $sql0 = "SELECT * FROM login WHERE user = '$nuser'";
-                $result = mysqli_query($conexao, $sql0);
-                if (mysqli_num_rows($result) > 0) {
+                $result = $conexao->query($sql0);
+                $busca = false;
+                foreach ($result as $linha){
+                    if($linha['user']==$nuser)$busca = true;
+                }
+                if ($busca) {
                     print "<h5>Erro => $nuser => JÁ EXISTE ! </h5>";
                 } else {
                     $sql1 = "INSERT INTO login (id, user, pass) VALUES (default, '$nuser', '$npassMD5')";
-                    mysqli_query($conexao, $sql1);
+                    $conexao->query($sql1);
                     print "<h5>Adicionado: $nuser , senha: $npass </h5>";
                 }
             }
@@ -43,10 +48,14 @@ if(sessao_mysql()){
             if (isset($_POST['del_user'])) {
                 $user = $_POST['user'];
                 $sql2 = "SELECT * FROM login WHERE user = '$user'";
-                $result = mysqli_query($conexao, $sql2);
-                if (mysqli_num_rows($result) > 0) {
+                $result = $conexao->query($sql2);
+                $busca = false;
+                foreach ($result as $linha){
+                    if($linha['user']==$user)$busca = true;
+                }
+                if ($busca) {
                     $sql22 = "DELETE FROM login WHERE user = '$user'";
-                    mysqli_query($conexao, $sql22);
+                    $conexao->query($sql22);
                     print "<h5>Usuario Apagado => $user </h5>";
                 } else {
                     print "<h5>Usuario Não Encontrado !! </h5>";
@@ -66,10 +75,11 @@ if(sessao_mysql()){
             <?php
             if (isset($_POST['consultar'])) {
                 $sql3 = "SELECT * from login";
-                $query = mysqli_query($conexao, $sql3); // captura os dados
-                while ($vetor = mysqli_fetch_array($query)) { // matriz_de_busca ; traz um por um das linhas de registros
-                    print "<h5 class='cons'> $vetor[0] - $vetor[1] </h5><br>";
-                }
+                $query = $conexao->query($sql3); // captura os dados
+                echo "<table class='users'><tr><th>ID</th><th>Nome</th></tr>";
+                foreach($query as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
+                    print "<tr><td>$vetor[id]</td><td>$vetor[user]</td></tr>";
+                }echo "</table>";
             }
             ?>
 

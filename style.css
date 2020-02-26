@@ -247,7 +247,7 @@ h2{
     background-color: #ccc;
     text-align: center;
 }
-table.arquivos {
+table.arquivos, table.users,table.pessoas{
     width: 420px;
     margin: 0 auto;
     font-size: 12px;
@@ -260,18 +260,17 @@ table.arquivos .col1 {
 }
 
 table.arquivos td,
-table.arquivos th {
+table.arquivos th,
+table.users td,
+table.users th,
+table.pessoas td,
+table.pessoas th{
     padding-left: 4px;
     border: 1px solid #404040;
 }
 
-table.arquivos th {
+table.arquivos th,table.users th, table.pessoas th {
     background-color: #ccc;
-}
-
-table#pessoas{
-    font-size: 14px;
-    margin-left: 100px;
 }
 
 #user,

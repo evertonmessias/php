@@ -1,13 +1,15 @@
 <?php
 if (sessao_mysql()) {
     servidor($server);
-    //$conexaoPDO = mysqli_connect(servidor, usuario, senha, banco); // conecta
+    // conexão com PDO
     $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
     try {
         $conexaoPDO = new PDO($dsn, usuario, senha);
-        echo "OK";
-    } catch (PDOException $e) {
-        echo "ERRO ao se conectar";
+    } catch (Exception $e) {
+        echo "<p>ERRO ao se conectar</p>";
+        echo "<p>".$e->getMessage()."</p>";
+        // getCode() , getLine() , getFile() .
+        // getTrace() => array com todos os erros
     }
 }
 ?>
@@ -24,12 +26,16 @@ if (sessao_mysql()) {
             $nnome = $_POST['nnome'];
             $ntelefone = $_POST['ntelefone'];
             $sql0 = "SELECT * FROM pessoas WHERE nome = '$nnome'";
-            $result = mysqli_query($conexaoPDO, $sql0);
-            if (mysqli_num_rows($result) > 0) {
+            $result = $conexaoPDO->query($sql0);
+            $busca = false;
+            foreach ($result as $linha){
+                if($linha[1]==$nnome)$busca = true;
+            }
+            if ($busca) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO pessoas (id, nome, telefone,email) VALUES (default, '$nnome', '$ntelefone','asdf@asdf')";
-                mysqli_query($conexaoPDO, $sql1);
+                $conexaoPDO->query($sql1);
                 print "<h5>Adicionado: $nnome , Telefone: $ntelefone </h5>";
             }
         }
@@ -49,10 +55,14 @@ if (sessao_mysql()) {
         if (isset($_POST['del_nome'])) {
             $nome = $_POST['nome'];
             $sql2 = "SELECT * FROM pessoas WHERE nome = '$nome'";
-            $result = mysqli_query($conexaoPDO, $sql2);
-            if (mysqli_num_rows($result) > 0) {
+            $result = $conexaoPDO->query($sql2);
+            $busca = false;
+            foreach ($result as $linha){
+                if($linha[1]==$nome)$busca = true;
+            }
+            if ($busca) {
                 $sql22 = "DELETE FROM pessoas WHERE nome = '$nome'";
-                mysqli_query($conexaoPDO, $sql22);
+                $conexaoPDO->query($sql22);
                 print "<h5>Pessoa Apagada => $nome </h5>";
             } else {
                 print "<h5>Nome Não Encontrado !! </h5>";
@@ -72,9 +82,9 @@ if (sessao_mysql()) {
         <?php
         if (isset($_POST['consultar'])) {
             $sql3 = "SELECT * from pessoas";
-            $query = mysqli_query($conexaoPDO, $sql3); // captura os dados
-            echo "<table class='arquivos' id='pessoas'><tr><th>ID</th><th>Nome</th><th>Telefone</th><th>E-Mail</th>";
-            while ($vetor = mysqli_fetch_array($query)) { // matriz_de_busca ; traz um por um das linhas de registros
+            $query = $conexaoPDO->query($sql3); // captura os dados
+            echo "<table class='pessoas'><tr><th>ID</th><th>Nome</th><th>Telefone</th><th>E-Mail</th></tr>";
+            foreach ($query as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
                 print "<tr><td>$vetor[0]</td><td>$vetor[1]</td><td>$vetor[2]</td><td>$vetor[3]</td></tr>";
             }echo "</table>";
         }
