@@ -33,7 +33,7 @@ if (!isset($_SESSION['user'])) {
             $sql0 = "SELECT * FROM pessoas WHERE nome = :nnome";
             //$result = $conexaoPDO->query($sql0); // inseguro !!!, usar:
             $result = $conexaoPDO->prepare($sql0);
-            $result->bindParam(":nnome",$nnome,PDO::PARAM_STR);
+            $result->bindParam(":nnome", $nnome, PDO::PARAM_STR);
             $result->execute();
             $busca = false;
             foreach ($result as $linha) {
@@ -42,9 +42,13 @@ if (!isset($_SESSION['user'])) {
             if ($busca) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
-                $sql1 = "INSERT INTO pessoas (id, nome, telefone,email) VALUES (default, '$nnome', '$ntelefone','$nemail')";
-                $conexaoPDO->query($sql1);
-                print "<h5>Adicionado: $nnome<br>Telefone: $ntelefone<br>E-Mail: $nemail</h5>";
+                $sql1 = "INSERT INTO pessoas VALUES (default, ?, ?, ?)";
+                //$conexaoPDO->query($sql1);
+                $result = $conexaoPDO->prepare($sql1);
+                $result->execute(array($nnome, $ntelefone, $nemail));
+                if ($result) {
+                    print "<h5>Adicionado: $nnome<br>Telefone: $ntelefone<br>E-Mail: $nemail</h5>";
+                }
             }
         }
         ?>
@@ -60,26 +64,26 @@ if (!isset($_SESSION['user'])) {
         <br>
         <p><input type="submit" name="del_nome" value="APAGAR" /></p>
         <?php
-            if (isset($_POST['del_nome'])) {
-                $idnome = $_POST['idnome'];
-                $sql2 = "SELECT id FROM pessoas WHERE id = :idnome";
-                //$result = $conexaoPDO->query($sql2); // inseguro !!!, usar:
-                $result = $conexaoPDO->prepare($sql2);
-                $result->bindParam(":idnome",$idnome,PDO::PARAM_STR);
-                $result->execute(); // + SEGURO
-                $busca = false;
-                foreach ($result as $linha){
-                    if($linha['id']==$idnome)$busca = true;
-                }
-                if ($busca) {
-                    $sql22 = "DELETE FROM pessoas WHERE id = '$idnome'";
-                    $conexaoPDO->query($sql22);
-                    print "<h5>Pessoa Apagada => $idnome </h5>";
-                } else {
-                    print "<h5>Pessoa Não Encontrada !! </h5>";
-                }
+        if (isset($_POST['del_nome'])) {
+            $idnome = $_POST['idnome'];
+            $sql2 = "SELECT id FROM pessoas WHERE id = :idnome";
+            //$result = $conexaoPDO->query($sql2); // inseguro !!!, usar:
+            $result = $conexaoPDO->prepare($sql2);
+            $result->bindParam(":idnome", $idnome, PDO::PARAM_STR);
+            $result->execute(); // + SEGURO
+            $busca = false;
+            foreach ($result as $linha) {
+                if ($linha['id'] == $idnome) $busca = true;
             }
-            ?>
+            if ($busca) {
+                $sql22 = "DELETE FROM pessoas WHERE id = '$idnome'";
+                $conexaoPDO->query($sql22);
+                print "<h5>Pessoa Apagada => $idnome </h5>";
+            } else {
+                print "<h5>Pessoa Não Encontrada !! </h5>";
+            }
+        }
+        ?>
     </form>
 </fieldset>
 
@@ -99,9 +103,10 @@ if (!isset($_SESSION['user'])) {
             } else {
                 $sql3 = "SELECT * from pessoas WHERE nome LIKE '$cnome%'";
             }
-            $query = $conexaoPDO->query($sql3); // captura os dados
+            $result = $conexaoPDO->prepare($sql3);
+            $result->execute();
             echo "<table class='pessoas'><tr><th>ID</th><th>Nome</th><th>Telefone</th><th>E-Mail</th></tr>";
-            foreach ($query as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
+            foreach ($result as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
                 print "<tr><td>$vetor[id]</td><td>$vetor[nome]</td><td>$vetor[telefone]</td><td>$vetor[email]</td></tr>";
             }
             echo "</table>";
