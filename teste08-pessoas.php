@@ -59,8 +59,11 @@ if (!isset($_SESSION['user'])) {
         <?php
             if (isset($_POST['del_nome'])) {
                 $idnome = $_POST['idnome'];
-                $sql2 = "SELECT id FROM pessoas WHERE id = '$idnome'";
-                $result = $conexaoPDO->query($sql2);
+                $sql2 = "SELECT id FROM pessoas WHERE id = :idnome";
+                //$result = $conexaoPDO->query($sql2); // inseguro !!!, usar:
+                $result = $conexaoPDO->prepare($sql2);
+                $result->bindParam(":idnome",$idnome,PDO::PARAM_STR);
+                $result->execute();
                 $busca = false;
                 foreach ($result as $linha){
                     if($linha['id']==$idnome)$busca = true;
