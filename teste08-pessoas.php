@@ -63,7 +63,7 @@ if (!isset($_SESSION['user'])) {
                 //$result = $conexaoPDO->query($sql2); // inseguro !!!, usar:
                 $result = $conexaoPDO->prepare($sql2);
                 $result->bindParam(":idnome",$idnome,PDO::PARAM_STR);
-                $result->execute();
+                $result->execute(); // + SEGURO
                 $busca = false;
                 foreach ($result as $linha){
                     if($linha['id']==$idnome)$busca = true;
