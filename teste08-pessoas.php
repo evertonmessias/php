@@ -7,6 +7,7 @@ if (!isset($_SESSION['user'])) {
     $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
     try {
         $conexaoPDO = new PDO($dsn, usuario, senha);
+        //$conexaoPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_SILENT);
     } catch (Exception $e) {
         echo "<p>ERRO ao se conectar</p>";
         echo "<p>" . $e->getMessage() . "</p>";
@@ -88,7 +89,7 @@ if (!isset($_SESSION['user'])) {
         if (isset($_POST['consultar'])) {
             $cnome = $_POST['cnome'];
             if ($cnome == "") {
-                $sql3 = "SELECT * from pessoas";
+                $sql3 = "SELECT * from pessoas"; // distinct - descarta iguais
             } else {
                 $sql3 = "SELECT * from pessoas WHERE nome LIKE '$cnome%'";
             }
