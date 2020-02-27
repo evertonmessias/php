@@ -14,6 +14,22 @@ if (!isset($_SESSION['user'])) {
         // getCode() , getLine() , getFile() .
         // getTrace() => array com todos os erros
     }
+    $tabela = "pessoas";
+    function consultar($conexao, $tabela, $campo, $valor)
+    {
+        $busca = false;
+        $sql = "SELECT * FROM $tabela WHERE $campo = ?";
+        $result = $conexao->prepare($sql);
+        $result->execute(array($valor));
+        foreach ($result as $linha) {
+            if ($linha[$campo] == $valor) $busca = true;
+        }
+        return $busca;
+    }
+    /* OBS.:
+    $result = $conexaoPDO->query($sql0); // inseguro !!!      
+    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo array
+    */
 }
 ?>
 <!-- *************************** ADD PESSOAS *********************************** -->
@@ -29,21 +45,11 @@ if (!isset($_SESSION['user'])) {
         if (isset($_POST['add_nome'])) {
             $nnome = $_POST['nnome'];
             $ntelefone = $_POST['ntelefone'];
-            $nemail = $_POST['nemail'];
-            $sql0 = "SELECT * FROM pessoas WHERE nome = :nnome";
-            //$result = $conexaoPDO->query($sql0); // inseguro !!!, usar:
-            $result = $conexaoPDO->prepare($sql0);
-            $result->bindParam(":nnome", $nnome, PDO::PARAM_STR);
-            $result->execute();
-            $busca = false;
-            foreach ($result as $linha) {
-                if ($linha['nome'] == $nnome) $busca = true;
-            }
-            if ($busca) {
+            $nemail = $_POST['nemail'];            
+            if (consultar($conexaoPDO,$tabela,'nome',$nnome)) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO pessoas VALUES (default, ?, ?, ?)";
-                //$conexaoPDO->query($sql1);
                 $result = $conexaoPDO->prepare($sql1);
                 $result->execute(array($nnome, $ntelefone, $nemail));
                 if ($result) {
@@ -65,20 +71,14 @@ if (!isset($_SESSION['user'])) {
         <p><input type="submit" name="del_nome" value="APAGAR" /></p>
         <?php
         if (isset($_POST['del_nome'])) {
-            $idnome = $_POST['idnome'];
-            $sql2 = "SELECT id FROM pessoas WHERE id = :idnome";
-            //$result = $conexaoPDO->query($sql2); // inseguro !!!, usar:
-            $result = $conexaoPDO->prepare($sql2);
-            $result->bindParam(":idnome", $idnome, PDO::PARAM_STR);
-            $result->execute(); // + SEGURO
-            $busca = false;
-            foreach ($result as $linha) {
-                if ($linha['id'] == $idnome) $busca = true;
-            }
-            if ($busca) {
-                $sql22 = "DELETE FROM pessoas WHERE id = '$idnome'";
-                $conexaoPDO->query($sql22);
-                print "<h5>Pessoa Apagada => $idnome </h5>";
+            $idnome = $_POST['idnome'];            
+            if (consultar($conexaoPDO,$tabela,'id',$idnome)) {
+                $sql22 = "DELETE FROM pessoas WHERE id = ?";
+                $result = $conexaoPDO->prepare($sql22);
+                $result->execute(array($idnome));
+                if ($result) {
+                    print "<h5>Pessoa Apagada => $idnome </h5>";
+                }
             } else {
                 print "<h5>Pessoa Não Encontrada !! </h5>";
             }
