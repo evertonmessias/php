@@ -7,18 +7,15 @@ if (!isset($_SESSION['user'])) {
     $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
     try {
         $conexaoPDO = new PDO($dsn, usuario, senha);
-        //$conexaoPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_SILENT);
     } catch (Exception $e) {
         echo "<p>ERRO ao se conectar</p>";
         echo "<p>" . $e->getMessage() . "</p>";
-        // getCode() , getLine() , getFile() .
-        // getTrace() => array com todos os erros
     }
     $tabela = "pessoas";
     function consultar($conexao, $tabela, $campo, $valor)
     {
         $busca = false;
-        $sql = "SELECT * FROM $tabela WHERE $campo = ?";
+        $sql = "SELECT * FROM $tabela WHERE $campo = ?"; //$valor = ?
         $result = $conexao->prepare($sql);
         $result->execute(array($valor));
         foreach ($result as $linha) {
@@ -26,9 +23,11 @@ if (!isset($_SESSION['user'])) {
         }
         return $busca;
     }
-    /* OBS.:
+    /* 
+    Observações:
+    $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
     $result = $conexaoPDO->query($sql0); // inseguro !!!      
-    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo array
+    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
     */
 }
 ?>
@@ -45,8 +44,8 @@ if (!isset($_SESSION['user'])) {
         if (isset($_POST['add_nome'])) {
             $nnome = $_POST['nnome'];
             $ntelefone = $_POST['ntelefone'];
-            $nemail = $_POST['nemail'];            
-            if (consultar($conexaoPDO,$tabela,'nome',$nnome)) {
+            $nemail = $_POST['nemail'];
+            if (consultar($conexaoPDO, $tabela, 'nome', $nnome)) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO pessoas VALUES (default, ?, ?, ?)";
@@ -71,8 +70,8 @@ if (!isset($_SESSION['user'])) {
         <p><input type="submit" name="del_nome" value="APAGAR" /></p>
         <?php
         if (isset($_POST['del_nome'])) {
-            $idnome = $_POST['idnome'];            
-            if (consultar($conexaoPDO,$tabela,'id',$idnome)) {
+            $idnome = $_POST['idnome'];
+            if (consultar($conexaoPDO, $tabela, 'id', $idnome)) {
                 $sql22 = "DELETE FROM pessoas WHERE id = ?";
                 $result = $conexaoPDO->prepare($sql22);
                 $result->execute(array($idnome));
