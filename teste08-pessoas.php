@@ -30,8 +30,11 @@ if (!isset($_SESSION['user'])) {
             $nnome = $_POST['nnome'];
             $ntelefone = $_POST['ntelefone'];
             $nemail = $_POST['nemail'];
-            $sql0 = "SELECT * FROM pessoas WHERE nome = '$nnome'";
-            $result = $conexaoPDO->query($sql0);
+            $sql0 = "SELECT * FROM pessoas WHERE nome = :nnome";
+            //$result = $conexaoPDO->query($sql0); // inseguro !!!, usar:
+            $result = $conexaoPDO->prepare($sql0);
+            $result->bindParam(":nnome",$nnome,PDO::PARAM_STR);
+            $result->execute();
             $busca = false;
             foreach ($result as $linha) {
                 if ($linha['nome'] == $nnome) $busca = true;
