@@ -1,10 +1,10 @@
 <?php
 require_once './teste11-1.php';
 extract($_POST);
-if (isset($botao)){
-$eq = new Eq2grau($a,$b,$c);
-echo "<p class='resp'>".$eq->calcular()[0]."</p>";
-echo "<p class='resp'>&Delta;&nbsp;=&nbsp;"
-.$eq->calcular()[1]."&nbsp;,&ensp;x<sub>1</sub>&nbsp;=&nbsp;"
-        .$eq->calcular()[2]."&nbsp;,&ensp;x<sub>2</sub>&nbsp;=&nbsp;"
-                .$eq->calcular()[3]."</p>";}
+$eq = new Eq2grau($a, $b, $c);
+$resposta = $eq->calcular();
+echo "<p><b>{$resposta[0]}</b></p>";
+echo "<p>Delta = {$resposta[1]}, 
+x<sub>1</sub> = {$resposta[2]}, 
+x<sub>2</sub> = {$resposta[3]}
+</p>";
