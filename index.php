@@ -25,7 +25,7 @@ sessao(basename(__FILE__));
         <li><a href="./index_aux.php?file=teste08.php" target="_blank">Teste 08 - MySQLi & PDO</a></li>
         <li><a href="./index_aux.php?file=teste09.php" target="_blank">Teste 09 - Sintaxe Básica O.O.</a></li>
         <li><a href="./index_aux.php?file=teste10.php" target="_blank">Teste 10 - Herança</a></li>
-        <li><a href="./index_aux.php?file=teste11.php" target="_blank">Teste 11 - Eq. 2ºGrau POO</a></li>
+        <li><a href="./index_aux.php?file=teste11.php" target="_blank">Teste 11 - Eq. 2º Grau com O.O.</a></li>
         <!-- FIM do /index.php -->
         <li><a href="./index.php" target="_blank"><b>(Fontes)</b></a></li>
     </ul>
