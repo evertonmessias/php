@@ -1,5 +1,5 @@
 <?php
-require_once './teste13-1.php';
+require_once './teste11-1.php';
 extract($_POST);
 if (isset($botao)){
 $eq = new Eq2grau($a,$b,$c);

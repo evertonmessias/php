@@ -1,51 +1,31 @@
 <?php
 
-class ControleRemoto {
-
-    private $volume;
-    private $ligado;
-    private $tocando;
+class Eq2grau {
     
+    private $valorA, $valorB, $valorC;
+            
+    function __construct($valorA, $valorB, $valorC) {
+        $this->valorA = $valorA;
+        $this->valorB = $valorB;
+        $this->valorC = $valorC;    }
+    
+    function escrever(){ // string da equação
+        if($this->valorB < 0 && $this->valorC < 0){
+        $eq = $this->valorA."x<sup>2</sup>&nbsp;".$this->valorB."x&nbsp;".$this->valorC."&nbsp;=&nbsp;0";}
+        elseif($this->valorB >= 0 && $this->valorC < 0){
+        $eq = $this->valorA."x<sup>2</sup>&nbsp;+".$this->valorB."x&nbsp;".$this->valorC."&nbsp;=&nbsp;0";}
+        elseif($this->valorB < 0 && $this->valorC >= 0){
+        $eq = $this->valorA."x<sup>2</sup>&nbsp;".$this->valorB."x&nbsp;+".$this->valorC."&nbsp;=&nbsp;0";}
+        else{
+        $eq = $this->valorA."x<sup>2</sup>&nbsp;+".$this->valorB."x&nbsp;+".$this->valorC."&nbsp;=&nbsp;0";}
+        return $eq; }
+        
+    function calcular(){ // cálculo da equação        
+        if($this->valorA == 0) {return ["Erro: 'A' não pode ser Zero!",'&empty;','&empty;','&empty;'];}
+        else {$d=((pow($this->valorB, 2))-(4*$this->valorA*$this->valorC)); // cálculo do delta               
+        if ($d < 0){return [$this->escrever(),number_format($d,1),'&empty;','&empty;'];}
+        else{$x1=((-1*$this->valorB)+(sqrt($d)))/(2*$this->valorA); // cálculo de Basckara
+             $x2=((-1*$this->valorB)-(sqrt($d)))/(2*$this->valorA);
+        return [$this->escrever(),number_format($d,1),number_format($x1,1),number_format($x2,1)];}}} // vetor resposta (equação, delta, x1, x2)
 
-    public function __construct() {
-		$this->volume = 50;
-		$this->ligado = false;
-		$this->tocando = false;		}
-
-	// getters setters private
-
-	private function getVolume() {return $this->volume;}
-	private function getLigado() {return $this->ligado;}
-	private function getTocando() {return $this->tocando;}
-	private function setVolume($volume) {$this->volume = $volume;}
-	private function setLigado($ligado) {$this->ligado = $ligado;}
-	private function setTocando($tocando) {$this->tocando = $tocando;}
-
-	// Interface public
-
-	public function ligar() {$this->setLigado(true);}
-	
-	public function desligar() {$this->setLigado(false);}
-	
-	public function abrirMenu() {
-		echo "<p>--------MENU--------</p>";
-		echo "<br>Está ligado ? ". ($this->getLigado()?"SIM":"Não");
-		echo "<br>Está tocando ? ". ($this->getTocando()?"SIM":"Não");
-		echo "<br>Volume: ". $this->getVolume();
-		for($i = 0; $i <= $this->getVolume(); $i += 10) {echo "|";}echo "<br>";}
-		
-	public function fecharMenu() {echo "<br>Fechando Menu ..";}
-	
-	public function maisVolume() {if ($this->getLigado()) {$this->setVolume($this->getVolume() + 5);}	}
-		
-	public function menosVolume() {if ($this->getLigado()) {$this->setVolume($this->getVolume() - 5);}	}
-	
-	public function ligarMudo() {if ($this->getLigado() && $this->getVolume() > 0)  {$this->setVolume(0);}	}
-	
-	public function desligarMudo() {if ($this->getLigado() && $this->getVolume() == 0)  {$this->setVolume(50);}	}
-	
-	public function play() {if ($this->getLigado() && !($this->getTocando()))  {$this->setTocando(true);}	}
-	
-	public function pause() {if ($this->getLigado() && $this->getTocando())  {$this->setTocando(false);}	}	
-
-}?>
+}

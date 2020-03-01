@@ -1,28 +1,60 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head><meta charset="utf-8">
-<title>Conta Bancaria</title>
-</head>
-<body>
-<pre>
 <?php
-require ("teste10-1.php");
 
-$p1 = new ContaBanco();
-$p2 = new ContaBanco();
+abstract class ContaBanco {	 // abstract não pode ser instanciada	
+	protected $agencia;
+    protected $conta;
+	protected $saldo;			
+	public function __construct($agencia,$conta,$saldo){
+		$this->agencia = $agencia;
+        $this->conta = $conta;
+        $this->saldo = $saldo;
+    }	
+	public function depositar($valor){
+        $this->saldo += $valor;
+        echo "<p>Deposito de R$ {$valor}, saldo R$ {$this->saldo}</p>";
+    }		
+	public function sacar($valor){
+		if($this->saldo >= $valor) {
+			$this->saldo -= $valor;
+            echo "<p>Saque de R$ {$valor}, saldo: R$ {$this->saldo}</p>";
+        }
+			else {echo "<p>Saldo insuficiente, saldo: R$ {$this->saldo}</p>";}	      
+    }    	
+}
 
-$p1->abrirConta(1,"Jubiléu","CC");
+final class Corrente extends ContaBanco{ // final não pode ser extendida 
+    protected $limite;
+    public function __construct($agencia,$conta,$saldo,$limite){
+		parent::__construct($agencia,$conta,$saldo); //herda algumas características e
+        $this->limite = $limite; // implementa uma nova
+        echo "<p>Conta Corrente Criada OK</p>";
+    }
+    public function sacar($valor){
+		if(($this->saldo + $this->limite) >= $valor) {
+			$this->saldo -= $valor;
+            echo "<p>Saque de R$ {$valor}, saldo: R$ {$this->saldo}</p>";
+        }
+			else {echo "<p>Saldo insuficiente, saldo: R$ {$this->saldo}</p>";}	      
+    }
+}
 
-$p2->abrirConta(2,"Creuza","CP");
+final class Poupanca extends ContaBanco{
+    public function __construct($agencia,$conta,$saldo){
+		parent::__construct($agencia,$conta,$saldo);        
+        echo "<p>Conta Poupança Criada OK</p>";
+    }
+}
 
-$p1->depositar(300);
-$p2->sacar(100);
+$c1 = new Corrente('a233','24xxx',5000,500);
+$p1 = new Poupanca('a233','24xxx',1000);
 
-$p1->pagarMensal();
-$p2->pagarMensal();
+echo "<h3>Movimentos na CC:</h3>";
+$c1->depositar(5000);
+$c1->sacar(9000);
+$c1->sacar(9000);
 
-print_r($p1);print_r($p2);
+echo "<h3>Movimentos na CP:</h3>";
+$p1->depositar(8000);
+$p1->sacar(9000);
+$p1->sacar(9000);
 
-?>
-</pre>
-</body></html>
