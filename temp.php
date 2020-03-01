@@ -1,0 +1,5 @@
+<?php
+
+// para testes rápidos ! ..
+
+?>

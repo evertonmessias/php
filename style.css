@@ -8,6 +8,7 @@ nav{
 }
 #area,
 input,
+select,
 small,
 img,
 .resp,
@@ -67,9 +68,13 @@ legend {
 }
 
 input,
-small {
+small,
+select {
     top: -20px;
 }
+select{width: 162px;
+height: 22px;}
+
 
 input[type='radio']:after {
     width: 15px;
@@ -212,14 +217,14 @@ h5.cons {
 #form1 {
     top: 5px;
     width: 275px;
-    height: 270px;
+    height: 320px;
     float: left;
 }
 
 #form2 {
     top: 5px;
     width: 275px;
-    height: 270px;
+    height: 320px;
     float: right;
 }
 
@@ -248,7 +253,7 @@ h2{
     text-align: center;
 }
 table.arquivos, table.users,table.pessoas{
-    width: 420px;
+    width: 500px;
     margin: 0 auto;
     font-size: 12px;
     border-spacing: 0px;
