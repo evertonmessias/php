@@ -1,5 +1,14 @@
 <?php
+/*
 
+Exemplo Mto Completo; contém : 
+
+interface , final class , abstract class , 
+const , self , parent , 
+herança , polimorfismo,
+exceções, associação e clone
+
+*/
 //******************************************************************* */
 
 interface Banco
