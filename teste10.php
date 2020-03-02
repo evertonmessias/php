@@ -1,7 +1,12 @@
 <?php
 
-abstract class ContaBanco {	 // abstract NÃO PODE ser instanciada
-    const banco = "Banco do Povo";	
+interface Banco{  // interface define um modelo para ser usado em outras classes
+    const banco = "Banco do Povo";
+    public function depositar($valor);
+    public function sacar($valor);    
+}
+
+abstract class ContaBanco implements Banco{	 // abstract NÃO PODE ser instanciada    	
 	protected $agencia;
     protected $conta;
     protected $saldo;
