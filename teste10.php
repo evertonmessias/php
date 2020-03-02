@@ -1,5 +1,7 @@
 <?php
 
+//******************************************************************* */
+
 interface Banco
 {  // interface define um modelo para ser usado em outras classes
     const banco = "Banco do Povo";
@@ -7,6 +9,8 @@ interface Banco
     public function sacar($valor);
     public function saldo($nome);
 }
+
+//******************************************************************* */
 
 final class Cliente
 {
@@ -35,18 +39,23 @@ abstract class ContaBanco implements Banco
     protected $agencia;
     protected $conta;
     protected $saldo; 
-    public $cliente;   
+    protected $cliente;   
 
-    public static function getDados()
+    public static function getBanco()
     { // static não precisa ser instanciada
-        echo self::banco;
+        return self::banco; // não pode usar this
     }
 
-    protected function __construct($agencia, $conta, $saldo)
+    public function getDados(){
+        return $this->cliente; // retorna Objeto Cliente
+    }
+
+    protected function __construct($agencia, $conta, $saldo, Cliente $cliente)
     {
         $this->agencia = $agencia;
         $this->conta = $conta;
-        $this->saldo = $saldo;            
+        $this->saldo = $saldo;
+        $this->cliente = $cliente;            
     }
     public function depositar($valor)
     {
@@ -74,12 +83,12 @@ final class Corrente extends ContaBanco
 { // final não pode ser extendida 
     const tipo = "Conta Corrente";
     private $limite;
-    public function __construct($agencia, $conta, $saldo, $limite)
+    public function __construct($agencia, $conta, $saldo, $cliente, $limite)
     {
-        parent::__construct($agencia, $conta, $saldo); //herda algumas características e
+        parent::__construct($agencia, $conta, $saldo, $cliente); //herda algumas características e
         $this->limite = $limite; // implementa uma nova ( POLIMORFISMO )
         echo "<p>OK, <b>Conta Corrente</b> {$this->conta}, <b>AG</b> {$this->agencia}, Criada no <b>" .
-            parent::banco . "</b> para: <u>{$this->cliente}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
+            parent::banco . "</b> para: <u>{$this->cliente->email}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
     }
     public function sacar($valor)
     { //( POLIMORFISMO )
@@ -101,11 +110,11 @@ final class Corrente extends ContaBanco
 final class Poupanca extends ContaBanco
 {
     const tipo = "Conta Poupança";
-    public function __construct($agencia, $conta, $saldo)
+    public function __construct($agencia, $conta, $saldo, $cliente)
     {
-        parent::__construct($agencia, $conta, $saldo);
+        parent::__construct($agencia, $conta, $saldo, $cliente);
         echo "<p>OK, <b>Conta Poupança</b> {$this->conta}, <b>AG</b> {$this->agencia}, Criada no <b>" .
-            parent::banco . "</b> para: <u>{$this->cliente}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
+            parent::banco . "</b> para: <u>{$this->cliente->email}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
     }
     public function saldo($nome)
     {
@@ -115,7 +124,7 @@ final class Poupanca extends ContaBanco
 
 //******************************************************************* */
 
-echo "<h2><u>Bem vindo ao " . ContaBanco::getDados() . "</u></h2>";
+echo "<h2>Bem vindo ao ".ContaBanco::getBanco()."</h2>";
 $ok = false;
 
 try {
@@ -127,13 +136,14 @@ try {
 
 if ($ok) {
 
-    $c1 = new Corrente('a233', '24xxx', 10000, 1000);
-    $p1 = new Poupanca('a233', '24xxx', 10000);
+    $c1 = new Corrente('a233', '24xxx', 10000,$cl, 1000);
+    $p1 = new Poupanca('a233', '24xxx', 10000, $cl);
 
-    $c1->cliente = $cl;
-    $p1->cliente = $cl;
+    echo "<b>Dados:</b><br>
+    Nome: ".$c1->getDados()->nome."<br>
+    CPF: ".$c1->getDados()->cpf."<br>
+    E-Mail: ".$c1->getDados()->email."<br>";
 
-    echo $c1->cliente->nome;
 
     echo "<h3>Movimentos na CC (c1):</h3>";
     $c1->depositar(5000);
