@@ -56,7 +56,7 @@ abstract class ContaBanco implements Banco
     }
 
     public function getDados(){
-        return $this->cliente; // retorna Objeto Cliente
+        return $this->cliente; // retorna Objeto Cliente , ASSOCIAÇÃO
     }
 
     protected function __construct($agencia, $conta, $saldo, Cliente $cliente)
