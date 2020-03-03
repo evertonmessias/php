@@ -6,19 +6,18 @@ if (!isset($_SESSION['user'])) {
     // conexão com PDO
     $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
     try {
-        $conexao = new PDO($dsn, usuario, senha);
+        $conexaoPDO = new PDO($dsn, usuario, senha);
     } catch (Exception $e) {
         echo "<p>ERRO ao se conectar</p>";
         echo "<p>" . $e->getMessage() . "</p>";
     }
 }
 $tabela = 'login';
-function consulta($conexao, $tabela, $campo, $valor)
+function consulta($conexaoPDO, $tabela, $campo, $valor)
 {
     $busca = false;
     $sql = "SELECT * FROM $tabela WHERE $campo = '$valor'"; //$valor = ?
-    $result = $conexao->prepare($sql);
-    $result->execute();
+    $result = $conexaoPDO->query($sql);    
     foreach ($result as $linha) {
         if ($linha[$campo] == $valor) $busca = true;
     }
@@ -27,7 +26,7 @@ function consulta($conexao, $tabela, $campo, $valor)
     /* 
     Observações:
     $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
-    $result = $conexao->query($sql0); // inseguro !!!      
+    $result = $conexaoPDO->query($sql0); // inseguro !!!      
     $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
     */
 ?>
@@ -44,11 +43,11 @@ function consulta($conexao, $tabela, $campo, $valor)
             $nuser = $_POST['nuser'];
             $npass = $_POST['npass'];
             $npassMD5 = md5($npass);
-            if (consulta($conexao, $tabela, 'user', $nuser)) {
+            if (consulta($conexaoPDO, $tabela, 'user', $nuser)) {
                 print "<h5>Erro => $nuser => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO login (id, user, pass) VALUES (default, '$nuser', '$npassMD5')";
-                $conexao->query($sql1);
+                $conexaoPDO->query($sql1);
                 print "<h5>Adicionado: $nuser , senha: $npass </h5>";
             }
         }
@@ -66,9 +65,9 @@ function consulta($conexao, $tabela, $campo, $valor)
         <?php
         if (isset($_POST['del_user'])) {
             $iduser = $_POST['iduser'];
-            if (consulta($conexao, $tabela, 'id', $iduser)) {
+            if (consulta($conexaoPDO, $tabela, 'id', $iduser)) {
                 $sql22 = "DELETE FROM login WHERE id = '$iduser'";
-                $conexao->query($sql22);
+                $conexaoPDO->query($sql22);
                 print "<h5>Usuario Apagado => $iduser </h5>";
             } else {
                 print "<h5>Usuario Não Encontrado !! </h5>";
@@ -88,7 +87,7 @@ function consulta($conexao, $tabela, $campo, $valor)
         <?php
         if (isset($_POST['consultar'])) {
             $sql3 = "SELECT * from login";
-            $query = $conexao->query($sql3); // captura os dados
+            $query = $conexaoPDO->query($sql3); // captura os dados
             echo "<table class='users'><tr><th>ID</th><th>Nome</th></tr>";
             foreach ($query as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
                 print "<tr><td>$vetor[id]</td><td>$vetor[user]</td></tr>";

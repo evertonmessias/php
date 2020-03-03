@@ -12,12 +12,11 @@ if (!isset($_SESSION['user'])) {
         echo "<p>" . $e->getMessage() . "</p>";
     }
     $tabela = "pessoas";
-    function consultar($conexao, $tabela, $campo, $valor)
+    function consultar($conexaoPDO, $tabela, $campo, $valor)
     {
         $busca = false;
         $sql = "SELECT * FROM $tabela WHERE $campo = '$valor'"; //$valor = ?
-        $result = $conexao->prepare($sql);
-        $result->execute();
+        $result = $conexaoPDO->query($sql);
         foreach ($result as $linha) {
             if ($linha[$campo] == $valor) $busca = true;
         }
@@ -44,8 +43,7 @@ if (!isset($_SESSION['user'])) {
             echo "<select name='user' required>";
             echo "<option class='placeholder' value='' disabled selected>Nome de Usuário</option>";
             $sqluser = "SELECT * FROM login";
-            $result = $conexaoPDO->prepare($sqluser);
-            $result->execute();
+            $result = $conexaoPDO->query($sqluser);
             foreach ($result as $linha) {
                 echo "<option value='$linha[id]'>$linha[user]</option>";
             }
@@ -134,8 +132,7 @@ if (!isset($_SESSION['user'])) {
                 WHERE pessoas.nome LIKE '$cnome%'
                 ORDER BY pessoas.id ASC";
             }
-            $result = $conexaoPDO->prepare($sql3);
-            $result->execute();
+            $result = $conexaoPDO->query($sql3);
             echo "<table class='pessoas'>
             <tr>
             <th>ID</th>
