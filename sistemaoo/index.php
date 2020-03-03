@@ -14,7 +14,11 @@
         <legend>LOGIN</legend><br>
         <form method="POST">
             <input type="text" id="nome" placeholder="Nome"><br>
-            <input type="password" id="senha" placeholder="Senha"><br><br>
+            <input type="password" id="senha" placeholder="Senha"><br>
+            <p>
+            <label><input type="radio" name="server" value="i">&ensp;Servidor Interno</label><br>
+            <label><input type="radio" name="server" value="e">&ensp;Servidor Externo</label>
+            </p><br>
             <button type="button" id="botaologin" class="btn btn-primary">ENTRAR</button>
         </form>
     </fieldset>    

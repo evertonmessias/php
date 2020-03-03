@@ -1,3 +1,6 @@
+body{
+    margin:0;padding:0;
+}
 fieldset {
     background-color: #eee;
     width: 700px;

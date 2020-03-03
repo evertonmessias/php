@@ -5,7 +5,7 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $tel = $_POST['tel'];
 $sql = "INSERT INTO $sis->tabela (id, nome, telefone, email) VALUES (default, '$nome', '$tel', '$email')";
-$resposta = mysqli_query($sis->conexao(), $sql);
+$resposta = $sis->conexao()->query($sql);
 if ($resposta) {
     print "<script>window.location.href='?p=consultar'</script>";
 } else {

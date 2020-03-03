@@ -1,7 +1,5 @@
 <?php
 include '../config.php';
-servidor('e');
-
 class Sistema
 {
     public $tabela = 'pessoas';
@@ -21,6 +19,7 @@ class Sistema
 
     public function conexao()
     {
+        if(isset($_SESSION['server'])){servidor($_SESSION['server']);}
         return new mysqli(servidor, usuario, senha, banco);
     }
 

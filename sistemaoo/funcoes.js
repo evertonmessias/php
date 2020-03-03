@@ -23,7 +23,8 @@ $(function () {
     });    
 
     $("#botaologin").click(function () {
-        if ($("#nome").val().length < 2 || $("#senha").val().length < 2) {
+        if ($("#nome").val().length < 2 || $("#senha").val().length < 2  ||
+        !$("input[type='radio']:checked").val()) {
             $("#quadro").fadeIn();$("#mensagem").html("Digite os campos corretamente !");
             $("#nome").val('').focus();
             $("#senha").val('');
@@ -31,7 +32,8 @@ $(function () {
         } else {
             var nome = $("#nome").val();
             var senha = $("#senha").val();
-            $.post("login.php", { nome: nome, senha: senha }, function (mostrar) {
+            var server = $("input[type='radio']:checked").val();
+            $.post("login.php", { nome: nome, senha: senha, server:server }, function (mostrar) {
                 $("#quadro").fadeIn();$("#mensagem").html(mostrar);
             });
         }
