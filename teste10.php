@@ -1,13 +1,18 @@
 <?php
 /*
-
 Exemplo Mto Completo; contém : 
-
-interface , final class , abstract class , 
-const , self , parent , 
-herança , polimorfismo,
-exceções, associação e clone
-
+interface,
+final class,
+abstract class, 
+const,
+self,
+parent , 
+herança,
+polimorfismo,
+exceções,
+associação,
+agregação,
+clone
 */
 //******************************************************************* */
 
@@ -56,10 +61,10 @@ abstract class ContaBanco implements Banco
     }
 
     public function getDados(){
-        return $this->cliente; // retorna Objeto Cliente , ASSOCIAÇÃO
+        return $this->cliente; // retorna um Objeto, (ASSOCIAÇÃO) this->cliente->nome
     }
 
-    protected function __construct($agencia, $conta, $saldo, Cliente $cliente)
+    protected function __construct($agencia, $conta, $saldo, Cliente $cliente) // AGREGAÇÃO
     {
         $this->agencia = $agencia;
         $this->conta = $conta;
@@ -134,18 +139,18 @@ final class Poupanca extends ContaBanco
 //******************************************************************* */
 
 echo "<h2>Bem vindo ao ".ContaBanco::getBanco()."</h2>";
-$ok = false;
+$tudo_ok = false;
 
 try {
     $cl = new Cliente("Fulano","123456789-00","email@asdf.com");
-    $ok = true;
+    $tudo_ok = true;
 } catch (Exception $e) {
     echo $e->getMessage();
 }
 
-if ($ok) {
+if ($tudo_ok) {
 
-    $c1 = new Corrente('a233', '24xxx', 10000,$cl, 1000);
+    $c1 = new Corrente('a233', '24xxx', 10000, $cl, 1000);
     $p1 = new Poupanca('a233', '24xxx', 10000, $cl);
 
     echo "<b>Dados:</b><br>
