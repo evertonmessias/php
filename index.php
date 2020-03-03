@@ -22,11 +22,11 @@ sessao(basename(__FILE__));
         <li><a href="./index_aux.php?file=teste05.php" target="_blank">Teste 05 - CSS com PHP</a></li>
         <li><a href="./index_aux.php?file=teste06.php" target="_blank">Teste 06 - Cookie & Session</a></li>
         <li><a href="./index_aux.php?file=teste07.php" target="_blank">Teste 07 - Upload & File</a></li>
-        <li><a href="./index_aux.php?file=teste08.php" target="_blank">Teste 08 - MySQLi & PDO</a></li>
+        <li><a href="./index_aux.php?file=teste08.php" target="_blank">Teste 08 - PDO</a></li>
         <li><a href="./index_aux.php?file=teste09.php" target="_blank">Teste 09 - Sintaxe Básica O.O.</a></li>
         <li><a href="./index_aux.php?file=teste10.php" target="_blank">Teste 10 - Herança e Polimorfismo</a></li>
         <li><a href="./index_aux.php?file=teste11.php" target="_blank">Teste 11 - Eq. 2º Grau com O.O.</a></li>
-        <li><a href="./index_aux.php?file=teste12.php" target="_blank">Teste 12 - Sistema com O.O.</a></li>
+        <li><a href="./index_aux.php?file=teste12.php" target="_blank">Teste 12 - MySQLi</a></li>
         <!-- FIM do /index.php -->
         <li><a href="./index.php" target="_blank"><b>(Fontes)</b></a></li>
     </ul>

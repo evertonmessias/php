@@ -1,13 +1,22 @@
 <?php                 // Ex. Login
-include 'config.php';
+include './config.php';
+include './teste08-config.php';
+
 $user = $_POST['user'];
 $pass = md5($_POST['pass']);
 $server = $_POST['server'];
+$tabela1 = 'login';
+$tabela2 = 'pessoas';
 servidor($server);
-$conexao = mysqli_connect(servidor, usuario, senha, banco); // conecta
-$sql = "SELECT * FROM login WHERE user = '$user' AND pass= '$pass'";
-$result = mysqli_query($conexao, $sql);
-if (mysqli_num_rows($result) > 0) {
+// conexão com PDO
+$dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
+try {
+    $conexaoPDO = new PDO($dsn, usuario, senha);
+} catch (Exception $e) {
+    echo "<p>ERRO ao se conectar</p>";
+    echo "<p>" . $e->getMessage() . "</p>";
+}
+if (consulta($conexaoPDO,$tabela1,'user',$user) && (consulta($conexaoPDO,$tabela1,'pass',$pass))) {
     session_start();
     $_SESSION['user'] = $user;
     $_SESSION['server'] = $server;
@@ -16,3 +25,10 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "Usuario ou Senha inválidos!";
 }
+
+    /* 
+    Observações:
+    $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
+    $result = $conexaoPDO->query($sql0); // inseguro !!!      
+    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
+    */

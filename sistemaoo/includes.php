@@ -1,6 +1,6 @@
 <?php
 include '../config.php';
-servidor('i');
+servidor('e');
 
 class Sistema
 {
@@ -28,10 +28,10 @@ class Sistema
     {
         $sql = "SELECT * from $tabela";
 
-        $lista = mysqli_query($conexao, $sql);
+        $lista = $conexao->query($sql);
         print "<table class='tabela'><tr><td class='tdid'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
-        while ($vetor = mysqli_fetch_array($lista)) {
-            print "<tr><td class='tdid'>" . $vetor[0] . "</td><td>" . $vetor[1] . "</td><td>" . $vetor[2] . "</td><td>" . $vetor[3] . "</td></tr>";
+        foreach ($lista as $vetor) {
+            print "<tr><td class='tdid'>" . $vetor['id'] . "</td><td>" . $vetor['nome'] . "</td><td>" . $vetor['telefone'] . "</td><td>" . $vetor['email'] . "</td></tr>";
         }
         print "</table>";
     }

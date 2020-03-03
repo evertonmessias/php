@@ -12,17 +12,6 @@ if (!isset($_SESSION['user'])) {
         echo "<p>" . $e->getMessage() . "</p>";
     }
 }
-$tabela = 'login';
-function consulta($conexaoPDO, $tabela, $campo, $valor)
-{
-    $busca = false;
-    $sql = "SELECT * FROM $tabela WHERE $campo = '$valor'"; //$valor = ?
-    $result = $conexaoPDO->query($sql);    
-    foreach ($result as $linha) {
-        if ($linha[$campo] == $valor) $busca = true;
-    }
-    return $busca;
-}
     /* 
     Observações:
     $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
@@ -43,7 +32,7 @@ function consulta($conexaoPDO, $tabela, $campo, $valor)
             $nuser = $_POST['nuser'];
             $npass = $_POST['npass'];
             $npassMD5 = md5($npass);
-            if (consulta($conexaoPDO, $tabela, 'user', $nuser)) {
+            if (consulta($conexaoPDO, $tabela1, 'user', $nuser)) {
                 print "<h5>Erro => $nuser => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO login (id, user, pass) VALUES (default, '$nuser', '$npassMD5')";
@@ -65,7 +54,7 @@ function consulta($conexaoPDO, $tabela, $campo, $valor)
         <?php
         if (isset($_POST['del_user'])) {
             $iduser = $_POST['iduser'];
-            if (consulta($conexaoPDO, $tabela, 'id', $iduser)) {
+            if (consulta($conexaoPDO, $tabela1, 'id', $iduser)) {
                 $sql22 = "DELETE FROM login WHERE id = '$iduser'";
                 $conexaoPDO->query($sql22);
                 print "<h5>Usuario Apagado => $iduser </h5>";

@@ -11,17 +11,6 @@ if (!isset($_SESSION['user'])) {
         echo "<p>ERRO ao se conectar</p>";
         echo "<p>" . $e->getMessage() . "</p>";
     }
-    $tabela = "pessoas";
-    function consultar($conexaoPDO, $tabela, $campo, $valor)
-    {
-        $busca = false;
-        $sql = "SELECT * FROM $tabela WHERE $campo = '$valor'"; //$valor = ?
-        $result = $conexaoPDO->query($sql);
-        foreach ($result as $linha) {
-            if ($linha[$campo] == $valor) $busca = true;
-        }
-        return $busca;
-    }
 }
     /* 
     Observações:
@@ -56,7 +45,7 @@ if (!isset($_SESSION['user'])) {
             $ntelefone = $_POST['ntelefone'];
             $nemail = $_POST['nemail'];
             $user = $_POST['user'];
-            if (consultar($conexaoPDO, $tabela, 'nome', $nnome)) {
+            if (consulta($conexaoPDO, $tabela2, 'nome', $nnome)) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO pessoas VALUES (default, ?, ?, ?, ?)";
@@ -82,7 +71,7 @@ if (!isset($_SESSION['user'])) {
         <?php
         if (isset($_POST['del_nome'])) {
             $idnome = $_POST['idnome'];
-            if (consultar($conexaoPDO, $tabela, 'id', $idnome)) {
+            if (consulta($conexaoPDO, $tabela2, 'id', $idnome)) {
                 $sql22 = "DELETE FROM pessoas WHERE id = ?";
                 $result = $conexaoPDO->prepare($sql22);
                 $result->execute(array($idnome));
@@ -102,11 +91,11 @@ if (!isset($_SESSION['user'])) {
 <fieldset id="form3">
     <form method="POST">
 
-        <legend>Consultar Pessoas</legend><br><br>
+        <legend>consulta Pessoas</legend><br><br>
         <p><input type="text" class="campo" name="cnome" placeholder=" Começado por (?)" /></p>
-        <p><input type="submit" name="consultar" value="CONSULTAR" /></p>
+        <p><input type="submit" name="consulta" value="consulta" /></p>
         <?php
-        if (isset($_POST['consultar'])) {
+        if (isset($_POST['consulta'])) {
             $cnome = $_POST['cnome'];
             if ($cnome == "") {
                 $sql3 = "SELECT                
