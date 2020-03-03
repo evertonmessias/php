@@ -1,10 +1,10 @@
 <?php
-include '../config.php';
+
 class Sistema
 {
     public $tabela = 'pessoas';
 
-    public function sessao()
+    public function sessaoo()
     {
         session_start();
         if (!isset($_SESSION['snome'])) {
@@ -18,8 +18,8 @@ class Sistema
     }
 
     public function conexao()
-    {
-        if(isset($_SESSION['server'])){servidor($_SESSION['server']);}
+    {        
+        if(isset($_SESSION['server'])){servidor($_SESSION['server']);}        
         return new mysqli(servidor, usuario, senha, banco);
     }
 

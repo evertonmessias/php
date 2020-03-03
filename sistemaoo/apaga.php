@@ -1,6 +1,9 @@
 <?php
-include("includes.php");
+include 'includes.php';
+include '../config.php';
 $sis = new Sistema;
+$sis->sessaoo();
+servidor($_SESSION['server']);
 $chek = $_POST['chek'];
 $idd = $_POST['idd'];
 $vetor = explode(',', $idd);

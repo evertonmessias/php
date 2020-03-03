@@ -1,6 +1,9 @@
 <?php
-include("includes.php");
+include 'includes.php';
+include '../config.php';
 $sis = new Sistema;
+$sis->sessaoo();
+servidor($_SESSION['server']);
 $id = $_POST['idd'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
