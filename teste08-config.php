@@ -2,7 +2,7 @@
 
 $tabela1 = 'login';
 $tabela2 = 'pessoas';
-servidor($_SESSION['server']);
+if(isset($_SESSION['server'])){servidor($_SESSION['server']);}
 
 function conexaoPDO(){    
     $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";

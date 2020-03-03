@@ -17,7 +17,7 @@ include './teste08-config.php';
             echo "<select name='user' required>";
             echo "<option class='placeholder' value='' disabled selected>Nome de Usuário</option>";
             $sqluser = "SELECT * FROM login";
-            $result = $conexaoPDO->query($sqluser);
+            $result = conexaoPDO()->query($sqluser);
             foreach ($result as $linha) {
                 echo "<option value='$linha[id]'>$linha[user]</option>";
             }
@@ -30,11 +30,11 @@ include './teste08-config.php';
             $ntelefone = $_POST['ntelefone'];
             $nemail = $_POST['nemail'];
             $user = $_POST['user'];
-            if (consulta($conexaoPDO, $tabela2, 'nome', $nnome)) {
+            if (consulta(conexaoPDO(), $tabela2, 'nome', $nnome)) {
                 print "<h5>Erro => $nnome => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO pessoas VALUES (default, ?, ?, ?, ?)";
-                $result = $conexaoPDO->prepare($sql1);
+                $result = conexaoPDO()->prepare($sql1);
                 $result->execute(array($nnome, $ntelefone, $nemail, $user));
                 if ($result) {
                     print "<h5>Adicionado: $nnome<br>Telefone: $ntelefone<br>E-Mail: $nemail</h5>";
@@ -56,9 +56,9 @@ include './teste08-config.php';
         <?php
         if (isset($_POST['del_nome'])) {
             $idnome = $_POST['idnome'];
-            if (consulta($conexaoPDO, $tabela2, 'id', $idnome)) {
+            if (consulta(conexaoPDO(), $tabela2, 'id', $idnome)) {
                 $sql22 = "DELETE FROM pessoas WHERE id = ?";
-                $result = $conexaoPDO->prepare($sql22);
+                $result = conexaoPDO()->prepare($sql22);
                 $result->execute(array($idnome));
                 if ($result) {
                     print "<h5>Pessoa Apagada => $idnome </h5>";
@@ -106,7 +106,7 @@ include './teste08-config.php';
                 WHERE pessoas.nome LIKE '$cnome%'
                 ORDER BY pessoas.id ASC";
             }
-            $result = $conexaoPDO->query($sql3);
+            $result = conexaoPDO()->query($sql3);
             echo "<table class='pessoas'>
             <tr>
             <th>ID</th>
