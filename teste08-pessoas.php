@@ -23,13 +23,13 @@ if (!isset($_SESSION['user'])) {
         }
         return $busca;
     }
+}
     /* 
     Observações:
     $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
     $result = $conexaoPDO->query($sql0); // inseguro !!!      
     $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
     */
-}
 ?>
 <!-- *************************** ADD PESSOAS *********************************** -->
 <h2>PESSOAS</h2>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['user'])) {
             } else {
                 $sql1 = "INSERT INTO pessoas VALUES (default, ?, ?, ?, ?)";
                 $result = $conexaoPDO->prepare($sql1);
-                $result->execute(array($nnome, $ntelefone, $nemail,$user));
+                $result->execute(array($nnome, $ntelefone, $nemail, $user));
                 if ($result) {
                     print "<h5>Adicionado: $nnome<br>Telefone: $ntelefone<br>E-Mail: $nemail</h5>";
                 }
@@ -145,13 +145,13 @@ if (!isset($_SESSION['user'])) {
             <th>User</th>
             </tr>";
             foreach ($result as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
-                print 
-                "<tr><td>".$vetor[0].
-                "</td><td>".$vetor[1].
-                "</td><td>".$vetor[2].
-                "</td><td>".$vetor[3].
-                "</td><td>".$vetor[4].
-                "</td></tr>";
+                print
+                    "<tr><td>" . $vetor[0] .
+                    "</td><td>" . $vetor[1] .
+                    "</td><td>" . $vetor[2] .
+                    "</td><td>" . $vetor[3] .
+                    "</td><td>" . $vetor[4] .
+                    "</td></tr>";
             }
             echo "</table>";
         }

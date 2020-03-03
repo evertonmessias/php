@@ -3,20 +3,33 @@ if (!isset($_SESSION['user'])) {
     header('location:./teste08.php');
 } else {
     servidor($server);
-    // conexão com MySQLi
-    $conexao = new mysqli(servidor, usuario, senha, banco);
+    // conexão com PDO
+    $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
+    try {
+        $conexao = new PDO($dsn, usuario, senha);
+    } catch (Exception $e) {
+        echo "<p>ERRO ao se conectar</p>";
+        echo "<p>" . $e->getMessage() . "</p>";
+    }
 }
 $tabela = 'login';
 function consulta($conexao, $tabela, $campo, $valor)
 {
     $busca = false;
-    $sql = "SELECT * FROM $tabela WHERE $campo = '$valor'";
-    $result = $conexao->query($sql);
+    $sql = "SELECT * FROM $tabela WHERE $campo = '$valor'"; //$valor = ?
+    $result = $conexao->prepare($sql);
+    $result->execute();
     foreach ($result as $linha) {
         if ($linha[$campo] == $valor) $busca = true;
     }
     return $busca;
 }
+    /* 
+    Observações:
+    $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
+    $result = $conexao->query($sql0); // inseguro !!!      
+    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
+    */
 ?>
 <!-- *************************** ADD USER *********************************** -->
 <h2>USUARIOS</h2>
@@ -31,7 +44,7 @@ function consulta($conexao, $tabela, $campo, $valor)
             $nuser = $_POST['nuser'];
             $npass = $_POST['npass'];
             $npassMD5 = md5($npass);
-            if (consulta($conexao,$tabela,'user',$nuser)) {
+            if (consulta($conexao, $tabela, 'user', $nuser)) {
                 print "<h5>Erro => $nuser => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO login (id, user, pass) VALUES (default, '$nuser', '$npassMD5')";
@@ -53,7 +66,7 @@ function consulta($conexao, $tabela, $campo, $valor)
         <?php
         if (isset($_POST['del_user'])) {
             $iduser = $_POST['iduser'];
-            if (consulta($conexao,$tabela,'id',$iduser)) {
+            if (consulta($conexao, $tabela, 'id', $iduser)) {
                 $sql22 = "DELETE FROM login WHERE id = '$iduser'";
                 $conexao->query($sql22);
                 print "<h5>Usuario Apagado => $iduser </h5>";
