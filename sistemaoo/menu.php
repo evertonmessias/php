@@ -15,7 +15,7 @@ $sis->erro();
 </head>
 <body><br>
     <fieldset>
-        <legend>CTECAMPUS</legend>        
+        <legend>SISTEMAOO</legend>        
             <button type="button" onclick="window.location.href='?p=inserir'" class="btn btn-primary">Inserir</button>&ensp;
             <button type="button" onclick="window.location.href='?p=consultar'" class="btn btn-success">Consultar</button>&ensp;
             <button type="button" onclick="window.location.href='?p=apagar'" class="btn btn-danger">Apagar</button>&ensp;
@@ -32,8 +32,8 @@ $sis->erro();
             print "<fieldset><legend>INSERIR</legend>
             <form method='post'>
                 <input type='text' id='nome' placeholder='Nome'><br>
-                <input type='text' id='email' placeholder='E-Mail'><br>
-                <input type='text' id='tel' placeholder='Telefone'><br><br>
+                <input type='text' id='tel' placeholder='Telefone'><br>
+                <input type='text' id='email' placeholder='E-Mail'><br><br>                
                 <button type='button' id='botaoinserir' class='btn btn-primary'>Inserir</button><br><br></form></fieldset>";
             break;
             case 'consultar':
@@ -51,8 +51,9 @@ $sis->erro();
             $sis->lista($sis->tabela, 'alterar', $sis->conexao());
             print "<br><br>
             <input type='text' id='anome' placeholder='Digite Novo Nome'><br>
+            <input type='text' id='atel' placeholder='Digite Novo Telefone'><br>
             <input type='text' id='aemail' placeholder='Digite Novo E-Mail'><br>
-            <input type='text' id='atel' placeholder='Digite Novo Telefone'><br><br>
+            <br>
             <button type='button' id='botaoalterar' class='btn btn-warning'>Alterar</button><br><br></form>
             </fieldset>";
             break;

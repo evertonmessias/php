@@ -1,8 +1,10 @@
 <?php
+include '../config.php';
+servidor('i');
 
 class Sistema
 {
-    public $tabela = 'temp';
+    public $tabela = 'pessoas';
 
     public function sessao()
     {
@@ -18,7 +20,7 @@ class Sistema
 
     public function conexao()
     {
-        return mysqli_connect("localhost", "root", "efc2505xx", "teste");
+        return new mysqli(servidor, usuario, senha, banco);
     }
 
     public function consultar($tabela,$conexao)
@@ -26,7 +28,7 @@ class Sistema
         $sql = "SELECT * from $tabela";
 
         $lista = mysqli_query($conexao, $sql);
-        print "<table class='tabela'><tr><td class='tdid'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>E-Mail</h4></td><td><h4>Telefone</h4></td></tr>";
+        print "<table class='tabela'><tr><td class='tdid'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
         while ($vetor = mysqli_fetch_array($lista)) {
             print "<tr><td class='tdid'>" . $vetor[0] . "</td><td>" . $vetor[1] . "</td><td>" . $vetor[2] . "</td><td>" . $vetor[3] . "</td></tr>";
         }
@@ -40,7 +42,7 @@ class Sistema
         if ($tipo == "alterar") {
             $sql = "SELECT * from $tabela";
             $lista = mysqli_query($conexao, $sql);
-            print "<table class='tabela'><tr><td colspan='2' class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>E-Mail</h4></td><td><h4>Telefone</h4></td></tr>";
+            print "<table class='tabela'><tr><td colspan='2' class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
             while ($vetor = mysqli_fetch_array($lista)) {
                 print "<tr><td class='tdida'><input type='radio' name='id' id='id" . $id . "' value='" . $vetor[0] . "'/></td><td class='tdida'>" . $vetor[0] . "</td><td>" . $vetor[1] . "</td><td>" . $vetor[2] . "</td><td>" . $vetor[3] . "</td></tr>";
                 $id++;
@@ -51,7 +53,7 @@ class Sistema
         } elseif ($tipo == "apagar") {
             $sql = "SELECT * from $tabela";
             $lista = mysqli_query($conexao, $sql);
-            print "<table class='tabela'><tr><td colspan='2' class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>E-Mail</h4></td><td><h4>Telefone</h4></td></tr>";
+            print "<table class='tabela'><tr><td colspan='2' class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
             while ($vetor = mysqli_fetch_array($lista)) {
                 print "<tr><td class='tdida'><input type='checkbox' id='id" . $id . "' value='" . $vetor[0] . "'/></td><td class='tdida'>" . $vetor[0] . "</td><td>" . $vetor[1] . "</td><td>" . $vetor[2] . "</td><td>" . $vetor[3] . "</td></tr>";
                 $id++;

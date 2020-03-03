@@ -4,7 +4,7 @@ $sis = new Sistema;
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $tel = $_POST['tel'];
-$sql = "INSERT INTO $sis->tabela (id, nome, email, tel) VALUES (default, '$nome', '$email', '$tel')";
+$sql = "INSERT INTO $sis->tabela (id, nome, telefone, email) VALUES (default, '$nome', '$tel', '$email')";
 $resposta = mysqli_query($sis->conexao(), $sql);
 if ($resposta) {
     print "<script>window.location.href='?p=consultar'</script>";
