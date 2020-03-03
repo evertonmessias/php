@@ -1,23 +1,8 @@
 <?php
 if (!isset($_SESSION['user'])) {
     header('location:./teste08.php');
-} else {
-    servidor($server);
-    // conexão com PDO
-    $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
-    try {
-        $conexaoPDO = new PDO($dsn, usuario, senha);
-    } catch (Exception $e) {
-        echo "<p>ERRO ao se conectar</p>";
-        echo "<p>" . $e->getMessage() . "</p>";
-    }
 }
-    /* 
-    Observações:
-    $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
-    $result = $conexaoPDO->query($sql0); // inseguro !!!      
-    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
-    */
+include './teste08-config.php';
 ?>
 <!-- *************************** ADD USER *********************************** -->
 <h2>USUARIOS</h2>
@@ -32,11 +17,11 @@ if (!isset($_SESSION['user'])) {
             $nuser = $_POST['nuser'];
             $npass = $_POST['npass'];
             $npassMD5 = md5($npass);
-            if (consulta($conexaoPDO, $tabela1, 'user', $nuser)) {
+            if (consulta(conexaoPDO(), $tabela1, 'user', $nuser)) {
                 print "<h5>Erro => $nuser => JÁ EXISTE ! </h5>";
             } else {
                 $sql1 = "INSERT INTO login (id, user, pass) VALUES (default, '$nuser', '$npassMD5')";
-                $conexaoPDO->query($sql1);
+                conexaoPDO()->query($sql1);
                 print "<h5>Adicionado: $nuser , senha: $npass </h5>";
             }
         }
@@ -54,9 +39,9 @@ if (!isset($_SESSION['user'])) {
         <?php
         if (isset($_POST['del_user'])) {
             $iduser = $_POST['iduser'];
-            if (consulta($conexaoPDO, $tabela1, 'id', $iduser)) {
+            if (consulta(conexaoPDO(), $tabela1, 'id', $iduser)) {
                 $sql22 = "DELETE FROM login WHERE id = '$iduser'";
-                $conexaoPDO->query($sql22);
+                conexaoPDO()->query($sql22);
                 print "<h5>Usuario Apagado => $iduser </h5>";
             } else {
                 print "<h5>Usuario Não Encontrado !! </h5>";
@@ -76,7 +61,7 @@ if (!isset($_SESSION['user'])) {
         <?php
         if (isset($_POST['consultar'])) {
             $sql3 = "SELECT * from login";
-            $query = $conexaoPDO->query($sql3); // captura os dados
+            $query = conexaoPDO()->query($sql3); // captura os dados
             echo "<table class='users'><tr><th>ID</th><th>Nome</th></tr>";
             foreach ($query as $vetor) { // matriz_de_busca ; traz um por um das linhas de registros
                 print "<tr><td>$vetor[id]</td><td>$vetor[user]</td></tr>";

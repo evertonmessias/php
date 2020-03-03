@@ -1,23 +1,8 @@
 <?php
 if (!isset($_SESSION['user'])) {
     header('location:./teste08.php');
-} else {
-    servidor($server);
-    // conexão com PDO
-    $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
-    try {
-        $conexaoPDO = new PDO($dsn, usuario, senha);
-    } catch (Exception $e) {
-        echo "<p>ERRO ao se conectar</p>";
-        echo "<p>" . $e->getMessage() . "</p>";
-    }
 }
-    /* 
-    Observações:
-    $e->getMessage(), getCode() , getLine() , getFile(), getTrace(array com todos os erros) 
-    $result = $conexaoPDO->query($sql0); // inseguro !!!      
-    $result->bindParam(":nnome", $nnome, PDO::PARAM_STR); // subtituido pelo execute(array())
-    */
+include './teste08-config.php';
 ?>
 <!-- *************************** ADD PESSOAS *********************************** -->
 <h2>PESSOAS</h2>

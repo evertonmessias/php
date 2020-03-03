@@ -2,7 +2,17 @@
 
 $tabela1 = 'login';
 $tabela2 = 'pessoas';
+servidor($_SESSION['server']);
 
+function conexaoPDO(){    
+    $dsn = "mysql:dbname=" . banco . ";host=" . servidor . "";
+try {
+    return new PDO($dsn, usuario, senha);
+} catch (Exception $e) {
+    echo "<p>*********ERRO ao se conectar*********</p>";
+    echo "<p>" . $e->getMessage() . "</p>";
+}
+}
 function consulta($conexaoPDO, $tabela, $campo, $valor)
 {
     $busca = false;
@@ -13,5 +23,4 @@ function consulta($conexaoPDO, $tabela, $campo, $valor)
     }
     return $busca;
 }
-
 ?>
