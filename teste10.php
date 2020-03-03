@@ -3,12 +3,12 @@
 Exemplo Mto Completo; contém : 
 interface,
 final class,
-abstract class, 
+abstract class,
+herança,
+polimorfismo, 
 const,
 self,
 parent , 
-herança,
-polimorfismo,
 exceções,
 associação,
 agregação,
@@ -28,9 +28,9 @@ interface Banco
 
 final class Cliente
 {
-    public $nome;
-    public $cpf;
-    public $email;
+    protected $nome;
+    protected $cpf;
+    protected $email;
 
     public function __construct($nome, $cpf, $email)
     {
@@ -44,12 +44,48 @@ final class Cliente
             $this->email = $email;
         }
     }
+
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+
+        return $this;
+    }
+
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    public function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+
+        return $this;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
 }
 
 //******************************************************************* */
 
 abstract class ContaBanco implements Banco
-{     // abstract NÃO PODE ser instanciada    	
+{     // abstract NÃO PODE ser instanciada, somente extendida     	
     protected $agencia;
     protected $conta;
     protected $saldo; 
@@ -102,7 +138,7 @@ final class Corrente extends ContaBanco
         parent::__construct($agencia, $conta, $saldo, $cliente); //herda algumas características e
         $this->limite = $limite; // implementa uma nova ( POLIMORFISMO )
         echo "<p>OK, <b>Conta Corrente</b> {$this->conta}, <b>AG</b> {$this->agencia}, Criada no <b>" .
-            parent::banco . "</b> para: <u>{$this->cliente->email}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
+            parent::banco . "</b> para: <u>{$this->cliente->getEmail()}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
     }
     public function sacar($valor)
     { //( POLIMORFISMO )
@@ -128,7 +164,7 @@ final class Poupanca extends ContaBanco
     {
         parent::__construct($agencia, $conta, $saldo, $cliente);
         echo "<p>OK, <b>Conta Poupança</b> {$this->conta}, <b>AG</b> {$this->agencia}, Criada no <b>" .
-            parent::banco . "</b> para: <u>{$this->cliente->email}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
+            parent::banco . "</b> para: <u>{$this->cliente->getEmail()}</u> , <b>saldo Atual</b>: {$this->saldo}</p>";
     }
     public function saldo($nome)
     {
@@ -154,9 +190,9 @@ if ($tudo_ok) {
     $p1 = new Poupanca('a233', '24xxx', 10000, $cl);
 
     echo "<b>Dados:</b><br>
-    Nome: ".$c1->getDados()->nome."<br>
-    CPF: ".$c1->getDados()->cpf."<br>
-    E-Mail: ".$c1->getDados()->email."<br>";
+    Nome: ".$c1->getDados()->getNome()."<br>
+    CPF: ".$c1->getDados()->getCpf()."<br>
+    E-Mail: ".$c1->getDados()->getEmail()."<br>";
 
 
     echo "<h3>Movimentos na CC (c1):</h3>";
