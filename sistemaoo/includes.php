@@ -44,7 +44,7 @@ class Sistema
         print "<table class='tabela'><tr><td colspan='2' class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
         foreach ($lista as $vetor) {
             if ($tipo == "alterar") {
-                print "<tr><td class='tdida'><input type='radio' id='id" . $id . "' value='" . $vetor['id'] . "'/></td><td class='tdida'>" . $vetor['id'] . "</td><td class='tnome" . $vetor['id'] . "'>" . $vetor['nome'] . "</td><td class='ttelefone" . $vetor['id'] . "'>" . $vetor['telefone'] . "</td><td class='temail" . $vetor['id'] . "'>" . $vetor['email'] . "</td></tr>";
+                print "<tr><td class='tdida'><input type='radio' name='opcao' id='id" . $id . "' value='" . $vetor['id'] . "'/></td><td class='tdida'>" . $vetor['id'] . "</td><td class='tnome" . $vetor['id'] . "'>" . $vetor['nome'] . "</td><td class='ttelefone" . $vetor['id'] . "'>" . $vetor['telefone'] . "</td><td class='temail" . $vetor['id'] . "'>" . $vetor['email'] . "</td></tr>";
             } elseif ($tipo == "apagar") {
                 print "<tr><td class='tdida'><input type='checkbox' id='id" . $id . "' value='" . $vetor['id'] . "'/></td><td class='tdida'>" . $vetor['id'] . "</td><td>" . $vetor['nome'] . "</td><td>" . $vetor['telefone'] . "</td><td>" . $vetor['email'] . "</td></tr>";
             }
