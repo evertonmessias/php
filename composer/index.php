@@ -1,12 +1,11 @@
 <?php
-// require_once './vendor/autoload.php';
+require_once './vendor/autoload.php';
 
-// use Cocur\Slugify\Slugify;
+$produto = new \App\Model\Produto();
+$produto->setNome("notebook Dell");
+$produto->setDescricao('i5, 4G');
 
-// $slugify = new Slugify();
-// echo $slugify->slugify('teste slug com acentuação gráfica',"_");
-
-
-
+$produtoDao = new \App\Model\ProdutoDao();
+$produtoDao->create($produto);
 
 ?>
