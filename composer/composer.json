@@ -1,0 +1,13 @@
+{
+    "name": "teste/mvc",
+    "description": "Testes composer MVC",
+    "require": {
+        "cocur/slugify": "4.0.0"
+    },
+    "authors": [
+        {
+            "name": "evertonmessias",
+            "email": "everton.messias@gmail.com"
+        }
+    ]
+}
