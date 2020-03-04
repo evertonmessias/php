@@ -39,6 +39,16 @@ $(function () {
         }
     });
 
+    $("input[type=radio]").click(()=>{                
+        var x = $("input[type=radio]:checked").val();
+        var nome = $(".tnome"+x).text();
+        var telefone = $(".ttelefone"+x).text();
+        var email = $(".temail"+x).text();
+        $("#anome").val(nome);
+        $("#atel").val(telefone);
+        $("#aemail").val(email);                    
+    })
+
     $("#botaoalterar").click(function () {
         var idd=0;
         var total = $("#total").val();
