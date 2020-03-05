@@ -1,6 +1,6 @@
 <?php
 include 'includes.php';
-include '../config.php';
+include 'config.php';
 $sis = new Sistema;
 $nome = @$_POST['nome'];
 $senha = @$_POST['senha'];

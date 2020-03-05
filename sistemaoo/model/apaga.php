@@ -1,6 +1,6 @@
 <?php
 include 'includes.php';
-include '../config.php';
+include 'config.php';
 $sis = new Sistema;
 $sis->sessaoo();
 servidor($_SESSION['server']);

@@ -20,7 +20,7 @@ function alterar(x) {
             var nome = $("#anome").val();
             var email = $("#aemail").val();
             var tel = $("#atel").val();
-            $.post("altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("model/altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -34,7 +34,7 @@ function apagar(x) {
 
     $("#botaoapagar").click(function () {
         var idd = x;
-        $.post("apaga.php", { idd: idd }, function (mostrar) {
+        $.post("model/apaga.php", { idd: idd }, function (mostrar) {
             $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
         });
     });
@@ -56,7 +56,7 @@ $(function () {
             var nome = $("#nome").val();
             var email = $("#email").val();
             var tel = $("#tel").val();
-            $.post("inseri.php", { nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("model/inseri.php", { nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -73,7 +73,7 @@ $(function () {
             var nome = $("#nome").val();
             var senha = $("#senha").val();
             var server = $("input[type='radio']:checked").val();
-            $.post("login.php", { nome: nome, senha: senha, server: server }, function (mostrar) {
+            $.post("model/login.php", { nome: nome, senha: senha, server: server }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -89,7 +89,7 @@ $(function () {
             var nome = $("#cnome").val();
             var email = $("#cemail").val();
             var msg = $("#cmsg").val();
-            $.post("send.php", { nome: nome, email: email, msg: msg }, function (mostrar) {
+            $.post("model/send.php", { nome: nome, email: email, msg: msg }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }

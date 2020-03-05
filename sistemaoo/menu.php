@@ -1,6 +1,6 @@
 <?php
-include 'includes.php';
-include '../config.php';
+include 'model/includes.php';
+include 'model/config.php';
 $sis = new Sistema;
 $sis->sessaoo(); 
 $sis->erro();
