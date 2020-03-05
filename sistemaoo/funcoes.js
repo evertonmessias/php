@@ -30,12 +30,12 @@ function alterar(x) {
         }
     });
 }
-function apagar(x) {
+function apagar(y) {
     idd = 0;
     $('tr').css({ 'background-color': '#fff' });
     $('#apagar').css({ 'display': 'block' });
-    $('#linha' + x).css({ 'background-color': '#ccc' });
-    idd = x;
+    $('#linha' + y).css({ 'background-color': '#ccc' });
+    idd = y;
     $("#botaoapagar").click(function () {        
         $.post("model/apaga.php", { idd: idd }, function (mostrar) {
             $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
