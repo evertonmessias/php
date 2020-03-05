@@ -1,5 +1,6 @@
 <?php
 require_once './vendor/autoload.php';
+//comando: composer dumpautoload -o
 
 $produto = new \App\Model\Produto();
 $produto->setNome("pcgamer HP");
