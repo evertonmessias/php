@@ -1,4 +1,9 @@
+idd = 0;
 function alterar(x) {
+    idd = 0;
+    $("#anome").val("");
+    $("#atel").val("");
+    $("#aemail").val("");
     $('tr').css({ 'background-color': '#fff' });
     $('#alterar').css({ 'display': 'block' });
     $('#linha' + x).css({ 'background-color': '#ccc' });
@@ -8,9 +13,8 @@ function alterar(x) {
     $("#anome").val(nome);
     $("#atel").val(telefone);
     $("#aemail").val(email);
-
-    $("#botaoalterar").click(function () {
-        var idd = x;
+    idd = x;
+    $("#botaoalterar").click(function () {        
         if ($("#anome").val().length < 2 || $("#aemail").val().length < 2 || $("#atel").val().length < 2) {
             $("#quadro").fadeIn(); $("#mensagem").html("Digite os campos corretamente !");
             $("#anome").val('').focus(); $("#aemail").val(''); $("#atel").val('');
@@ -26,14 +30,13 @@ function alterar(x) {
         }
     });
 }
-
 function apagar(x) {
+    idd = 0;
     $('tr').css({ 'background-color': '#fff' });
     $('#apagar').css({ 'display': 'block' });
     $('#linha' + x).css({ 'background-color': '#ccc' });
-
-    $("#botaoapagar").click(function () {
-        var idd = x;
+    idd = x;
+    $("#botaoapagar").click(function () {        
         $.post("model/apaga.php", { idd: idd }, function (mostrar) {
             $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
         });
