@@ -59,6 +59,12 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
     text-align: center;
     width: 25px;
 }
+.tabela tr.select:hover{
+    cursor: pointer;
+}
+.tabela tr.select:hover{
+    background-color: #ccc;
+}
 
 #mensagem{    
     display: block;position: absolute;margin-left: 40%;margin-top: 10%;
