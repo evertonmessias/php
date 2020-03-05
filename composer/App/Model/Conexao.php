@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
-include 'config.php';
-servidor('i');
+include 'Config.php';
+Servidor('i');
 class Conexao
 {       // padrão DAO , data access object (separa lógica dos dados)
     private static $instance;

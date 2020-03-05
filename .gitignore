@@ -2,4 +2,4 @@ img/
 log/
 config.php
 composer/vendor/
-composer/App/Model/config.php
+composer/App/Model/Config.php
