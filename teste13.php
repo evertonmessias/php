@@ -1,3 +1,3 @@
 <?php
-header('Location:composer/');
+header('Location:sistemamvc/');
 ?>
