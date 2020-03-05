@@ -50,11 +50,6 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
     vertical-align: center;
 }
 
-.tabela td.tdid{
-    text-align: center;
-    width: 50px;
-}
-
 .tabela td.tdida{
     text-align: center;
     width: 25px;

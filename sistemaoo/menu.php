@@ -45,6 +45,7 @@ $sis->erro();
             $sis->lista($sis->tabela, 'apagar', $sis->conexao());
             print "<form method='post'>";
             print "<br><br><div id='apagar'>
+            <span class='confirma'>Confirma ?</span><br> 
             <button type='button' id='botaoapagar' class='btn btn-danger'>Apagar</button><br><br>
             </form>
             </div>
