@@ -35,7 +35,7 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
 }
 
 .tabela {
-    width: 650px;
+    width: 638px;
     border-spacing: 0px;
     display: block;
     position: relative;
@@ -59,11 +59,15 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
     text-align: center;
     width: 25px;
 }
-.tabela tr.select:hover{
+.tabela tr.linha{
     cursor: pointer;
 }
-.tabela tr.select:hover{
+.tabela tr.linha:hover{
     background-color: #ccc;
+}
+
+#alterar , #apagar{
+    display: none;
 }
 
 #mensagem{    

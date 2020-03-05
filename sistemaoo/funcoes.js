@@ -1,10 +1,51 @@
-$(function () {
+function alterar(x){    
+    $('tr').css({'background-color':'#fff'});
+    $('#alterar').css({'display':'block'});
+    $('#linha'+x).css({'background-color':'#ccc'});
+    var nome = $(".tnome"+x).text();
+    var telefone = $(".ttelefone"+x).text();
+    var email = $(".temail"+x).text();
+    $("#anome").val(nome);
+    $("#atel").val(telefone);
+    $("#aemail").val(email);
 
-    var lar = $(window).width();var alt = $(window).height();
+    $("#botaoalterar").click(function () {
+        var idd = x;
+        if ($("#anome").val().length < 2 || $("#aemail").val().length < 2 || $("#atel").val().length < 2) {
+            $("#quadro").fadeIn();$("#mensagem").html("Digite os campos corretamente !");
+            $("#anome").val('').focus(); $("#aemail").val(''); $("#atel").val('');
+            return false;
+        }
+        else {
+            var nome = $("#anome").val();
+            var email = $("#aemail").val();
+            var tel = $("#atel").val();
+            $.post("altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
+                $("#quadro").fadeIn();$("#mensagem").html(mostrar);
+            });
+        }
+    });  
+}
+
+function apagar(x){    
+    $('tr').css({'background-color':'#fff'});
+    $('#apagar').css({'display':'block'});
+    $('#linha'+x).css({'background-color':'#ccc'});
+
+    $("#botaoapagar").click(function () {
+        var idd = x;
+        $.post("apaga.php", { idd: idd}, function (mostrar) {
+                $("#quadro").fadeIn();$("#mensagem").html(mostrar);
+            });
+        });
+}
+
+$(function () {    
 
     $("#quadro").click(function () {
         $(this).fadeOut();
     });
+
 
     $("#botaoinserir").click(function () {
         if ($("#nome").val().length < 2 || $("#email").val().length < 2 || $("#tel").val().length < 2) {
@@ -37,68 +78,7 @@ $(function () {
                 $("#quadro").fadeIn();$("#mensagem").html(mostrar);
             });
         }
-    });
-
-    $("input[type=radio]").click(()=>{                
-        var x = $("input[type=radio]:checked").val();
-        var nome = $(".tnome"+x).text();
-        var telefone = $(".ttelefone"+x).text();
-        var email = $(".temail"+x).text();
-        $("#anome").val(nome);
-        $("#atel").val(telefone);
-        $("#aemail").val(email);                    
-    })
-
-    $("#botaoalterar").click(function () {
-        var idd=0;
-        var total = $("#total").val();
-
-        for(var i=1;i<=total;i++){
-            if ($("#id"+i).prop('checked')) {
-                idd = $("#id"+i).val();
-            }
-        }
-        if (idd == 0) {
-            $("#quadro").fadeIn();$("#mensagem").html("Escolha um ID !");
-            return false;
-        }
-        else if ($("#anome").val().length < 2 || $("#aemail").val().length < 2 || $("#atel").val().length < 2) {
-            $("#quadro").fadeIn();$("#mensagem").html("Digite os campos corretamente !");
-            $("#anome").val('').focus(); $("#aemail").val(''); $("#atel").val('');
-            return false;
-        }
-        else {
-            var nome = $("#anome").val();
-            var email = $("#aemail").val();
-            var tel = $("#atel").val();
-            $.post("altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
-                $("#quadro").fadeIn();$("#mensagem").html(mostrar);
-            });
-        }
-    });    
-
-    $("#botaoapagar").click(function () {
-        var idd="";
-        var total = $("#total").val();
-        var chek = 0;
-
-        for(var i=1;i<=total;i++){
-            if ($("#id"+i).prop('checked')) {
-                idd = idd + $("#id"+i).val() + ",";
-                chek++;
-            }
-        }
-        if (idd == "") {
-            $("#quadro").fadeIn();$("#mensagem").html("Escolha um ID !");
-            return false;
-        }
-        else {
-            $.post("apaga.php", { idd: idd, chek: chek }, function (mostrar) {
-                $("#quadro").fadeIn();$("#mensagem").html(mostrar);
-            });
-        }
-    });
-
+    });  
 
     $("#botaocontatos").click(function () {
         if ($("#cnome").val().length < 2 || $("#cemail").val().length < 2 || $("#cmsg").val().length < 2) {
