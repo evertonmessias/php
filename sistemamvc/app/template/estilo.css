@@ -1,9 +1,21 @@
 body{
     margin:0;padding:0;
-}
-fieldset {
     background-color: #eee;
-    width: 700px;
+    font:18px Arial;
+}
+
+#conteudo{    
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+    min-height: 600px;
+    background-color: #fff;
+}
+
+fieldset {
+    background-color: #fff;
+    width: 1000px;
     display: block;
     position: relative;
     margin: 0 auto;
@@ -20,18 +32,6 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
 
 .btn {
     width: 100px;
-}
-
-#capa{
-    display: block;position: relative;margin: 0 auto;width: 700px;
-    background-color: #eee;text-align: center;
-    font-size: 130px;font-weight: bold;
-}
-#capa h1{
-    font-size: 100px;font-weight: bold;
-}
-#capa p{
-    font-size: 30px;font-weight: bold;
 }
 
 .tabela {
@@ -62,7 +62,7 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
 }
 
 #alterar , #apagar{
-    display: none;
+    display: block;
 }
 
 #mensagem{    
