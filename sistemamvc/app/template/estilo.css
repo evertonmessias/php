@@ -30,6 +30,10 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
     border-radius: 3px;
 }
 
+.sitename{
+    font-size:30px;font-weight: bold;
+}
+
 .btn {
     width: 100px;
 }

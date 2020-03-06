@@ -27,8 +27,7 @@ class Apagar
     {
         print "<fieldset><legend>APAGAR</legend>";
         //$sis->lista($sis->tabela, 'apagar', $sis->conexao());
-        print "<form method='post'>";
-        print "<br><br><div id='apagar'>
+        print "<form method='post'><br><br><div id='apagar'>
             <span class='confirma'>Confirma ?</span><br> 
             <button type='button' id='botaoapagar' class='btn btn-danger'>Apagar</button><br><br>
             </form>
@@ -58,7 +57,7 @@ class Contatos
     public function index()
     {
         print "
-    <fieldset><legend>CONTATOS</legend><form method='post'>
+    <fieldset><legend>CONTATOS</legend><form method='post'><br><br>
     <input type='text' id='cnome' placeholder='Nome'required><br>
     <input type='text' id='cemail' placeholder='E-Mail'required><br>
     <textarea id='cmsg' cols='45' rows='8' placeholder=' Mensagem' required></textarea>
