@@ -1,12 +1,13 @@
 <?php
 include 'app/core/core.php';
-include 'app/controller/menu.php';
+include 'app/model/menu.php';
 include 'app/model/includes.php';
 include 'app/model/config.php';
+include 'app/template/head.html';
 
-$head = file_get_contents('app/template/head.html');
+Sistema::erro();
+
 $nav_content = file_get_contents('app/template/nav_content.html');
-echo $head;
 
 ob_start(); // inicio captura do buffer navegador
 $core = new Core;
@@ -16,10 +17,3 @@ ob_end_clean(); // fim
 
 $conteudo = str_replace('{{conteudo}}',$saida,$nav_content);
 echo $conteudo;
-
-if($conexao = Sistema::conexao()){
-    echo "OKKKK";
-}else{
-    echo "BADDD";
-}
-

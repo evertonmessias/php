@@ -30,6 +30,13 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
     border-radius: 3px;
 }
 
+.titulo{
+    font-size: 50px;font-weight: bold;
+}
+.subtitulo{
+    font-size: 15px;font-weight: bold;
+}
+
 .sitename{
     font-size:30px;font-weight: bold;
 }
@@ -66,7 +73,7 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
 }
 
 #alterar , #apagar{
-    display: block;
+    display: none;
 }
 
 #mensagem{    

@@ -24,7 +24,7 @@ function alterar(x) {
             var nome = $("#anome").val();
             var email = $("#aemail").val();
             var tel = $("#atel").val();
-            $.post("model/altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("../model/altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }

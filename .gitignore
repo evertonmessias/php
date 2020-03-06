@@ -3,4 +3,4 @@ log/
 config.php
 composer/vendor/
 sistemaoo/model/config.php
-sistemamvc/model/config.php
+sistemamvc/app/model/config.php
