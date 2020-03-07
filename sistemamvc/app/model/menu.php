@@ -13,7 +13,7 @@ class Inserir
 {
     public function index()
     {
-        print Banco::lista(Sistema::$tabela1, 'consultar', Sistema::conexao());
+        print Banco::lista('consultar');
         print "<br><fieldset><legend>INSERIR</legend>
             <form method='post'><br><br>
             <input type='text' id='nome' placeholder='Nome'><br>
@@ -28,7 +28,7 @@ class Apagar
 {
     public function index()
     {
-        print Banco::lista(Sistema::$tabela1, 'apagar', Sistema::conexao());
+        print Banco::lista('apagar');
         print "<br><fieldset><legend>APAGAR</legend>
             <form method='post'><br><br><div id='apagar'>
             <span class='confirma'>Confirma ?</span><br> 
@@ -42,7 +42,7 @@ class Alterar
 {
     public function index()
     {
-        print Banco::lista(Sistema::$tabela1, 'alterar', Sistema::conexao());
+        print Banco::lista('alterar');
         print "<br><fieldset><legend>ALTERAR</legend>
             <form method='post'><br><br><div id='alterar'>
             <input type='text' id='anome' placeholder='Digite Novo Nome'><br>

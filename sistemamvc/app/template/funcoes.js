@@ -56,10 +56,11 @@ $(function () {
             $("#email").val(''); $("#tel").val('');
             return false;
         } else {
+            var botaoinserir = $("#botaoinserir").val();
             var nome = $("#nome").val();
             var email = $("#email").val();
             var tel = $("#tel").val();
-            $.post("./app/model/inseri.php", { nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("./app/model/inserir.php", { botaoinserir:botaoinserir,nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }

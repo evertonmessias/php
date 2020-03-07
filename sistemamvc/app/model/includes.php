@@ -2,10 +2,10 @@
 
 abstract class Banco
 {
-    public static function lista($tabela, $tipo, $conexao)
-    {
-        $sql = "SELECT * from $tabela";
-        $lista = $conexao->query($sql);
+    public static function lista($tipo)
+    {       
+    $sql = "SELECT * from ".Sistema::$tabela1."";
+        $lista = Sistema::conexao()->query($sql);
         $saida = "";
         print "<table class='tabela'><tr><td class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
         foreach ($lista as $vetor) {
@@ -31,3 +31,7 @@ abstract class Banco
         return $saida;
     }
 }
+
+
+
+
