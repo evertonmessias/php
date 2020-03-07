@@ -1,6 +1,6 @@
 <?php
 
-class Banco
+abstract class Banco
 {
     public static function lista($tabela, $tipo, $conexao)
     {
