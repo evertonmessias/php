@@ -24,7 +24,7 @@ function alterar(x) {
             var nome = $("#anome").val();
             var email = $("#aemail").val();
             var tel = $("#atel").val();
-            $.post("../model/altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("./app/model/altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -37,7 +37,7 @@ function apagar(y) {
     $('#linha' + y).css({ 'background-color': '#ccc' });
     idd = y;
     $("#botaoapagar").click(function () {        
-        $.post("model/apaga.php", { idd: idd }, function (mostrar) {
+        $.post("./app/model/apaga.php", { idd: idd }, function (mostrar) {
             $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
         });
     });
@@ -59,24 +59,22 @@ $(function () {
             var nome = $("#nome").val();
             var email = $("#email").val();
             var tel = $("#tel").val();
-            $.post("model/inseri.php", { nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("./app/model/inseri.php", { nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
     });
 
     $("#botaologin").click(function () {
-        if ($("#nome").val().length < 2 || $("#senha").val().length < 2 ||
-            !$("input[type='radio']:checked").val()) {
-            $("#quadro").fadeIn(); $("#mensagem").html("Digite os campos corretamente !");
+        if ($("#nome").val().length < 2 || $("#senha").val().length < 2) {
+            $("#quadro").fadeIn(); $("#mensagem").html("Digite o login corretamente !");
             $("#nome").val('').focus();
             $("#senha").val('');
             return false;
         } else {
             var nome = $("#nome").val();
-            var senha = $("#senha").val();
-            var server = $("input[type='radio']:checked").val();
-            $.post("model/login.php", { nome: nome, senha: senha, server: server }, function (mostrar) {
+            var senha = $("#senha").val();           
+            $.post("./model/login.php", { nome: nome, senha: senha }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -92,7 +90,7 @@ $(function () {
             var nome = $("#cnome").val();
             var email = $("#cemail").val();
             var msg = $("#cmsg").val();
-            $.post("model/send.php", { nome: nome, email: email, msg: msg }, function (mostrar) {
+            $.post("./app/model/send.php", { nome: nome, email: email, msg: msg }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }

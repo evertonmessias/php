@@ -73,10 +73,10 @@ class Sair
     public function index()
     {
         print " <fieldset><legend>SAIR</legend></fieldset>";
-        //$_SESSION['snome'] = null;
-        //unset($_SESSION['snome']);
-        //session_destroy();
-        //print "<script>window.location.href='index.php'</script>";
+        $_SESSION['snome'] = null;
+        unset($_SESSION['snome']);
+        session_destroy();
+        print "<script>window.location.href='./app/login.php'</script>";
     }
 }
 class Erro
