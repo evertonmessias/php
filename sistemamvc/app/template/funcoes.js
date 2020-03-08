@@ -4,7 +4,7 @@ function alterar(x) {
     $("#anome").val("");
     $("#atel").val("");
     $("#aemail").val("");
-    $('tr').css({ 'background-color': '#fff' });
+    $('tr.linha').css({ 'background-color': '#fff' });
     $('#alterar').css({ 'display': 'block' });
     $('#linha' + x).css({ 'background-color': '#ccc' });
     var nome = $(".tnome" + x).text();
@@ -33,7 +33,7 @@ function alterar(x) {
 }
 function apagar(y) {
     idd = 0;
-    $('tr').css({ 'background-color': '#fff' });
+    $('tr.linha').css({ 'background-color': '#fff' });
     $('#apagar').css({ 'display': 'block' });
     $('#linha' + y).css({ 'background-color': '#ccc' });
     idd = y;
