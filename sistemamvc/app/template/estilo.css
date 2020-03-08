@@ -55,10 +55,25 @@ fieldset input[type='text'],fieldset input[type='password'],fieldset textarea{
     text-align: left;
 }
 
-.tabela td {
+.tabela td, .tabela th {
     border: 1px solid black;
     width: 200px;
     vertical-align: center;
+}
+.tabela th{
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+tr.consultar{
+    background-color:#218838;
+}
+tr.alterar{
+    background-color:#E0A800;
+}
+tr.apagar{
+    background-color:#C82333;
 }
 
 .tabela td.tdida{

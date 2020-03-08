@@ -7,7 +7,7 @@ abstract class Db
         $sql = "SELECT * from " . Sistema::$tabela1 . "";
         $lista = Sistema::conexao()->query($sql);
         $saida = "";
-        print "<table class='tabela'><tr><td class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
+        print "<table class='tabela'><tr class='$tipo'><th class='thida'><h4>ID</h4></th><th><h4>Nome</h4></th><th><h4>Telefone</h4></th><th><h4>E-Mail</h4></th></tr>";
         foreach ($lista as $vetor) {
             if ($tipo == "consultar") {
                 $saida .= "<tr><td class='tdida'>" . $vetor['id'] . "</td><td>" . $vetor['nome'] . "</td><td>" . $vetor['telefone'] . "</td><td>" . $vetor['email'] . "</td></tr>";
