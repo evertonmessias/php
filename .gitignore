@@ -3,3 +3,6 @@ log/
 config.php
 autoload/vendor/
 autoload/App/Model/Servidor.php
+sistemaoo/model/config.php
+sistemamvc/vendor/
+sistemamvc/app/core/includes.php
