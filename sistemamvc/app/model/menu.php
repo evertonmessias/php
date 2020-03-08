@@ -6,7 +6,7 @@ class Home
     {
         print "<fieldset><legend></legend>
         <span class='titulo'>BEM VINDO</span><br>
-        <span class='subtitulo'>Você está logado</span>
+        <span class='subtitulo'>".$_SESSION['snome']."</span>
         </fieldset>";
     }
 }
@@ -84,6 +84,6 @@ class Erro
 {
     public function index()
     {
-        echo "ERRO, PAGINA NÃO ENCONTRADA";
+        echo "<fieldset>ERRO, PAGINA NÃO ENCONTRADA</fieldset>";
     }
 }
