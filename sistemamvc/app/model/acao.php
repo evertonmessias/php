@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../core/includes.php';
 include 'db.php';
 
 if(isset($_POST['botaoinserir'])){
