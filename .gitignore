@@ -1,6 +1,5 @@
 img/
 log/
 config.php
-composer/vendor/
+autoload/vendor/
 sistemaoo/model/config.php
-sistemamvc/app/model/config.php
