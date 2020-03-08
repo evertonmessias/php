@@ -1,5 +1,5 @@
 <?php
-include 'consulta.php';
+include 'db.php';
 class Home
 {
     public function index()
@@ -14,7 +14,7 @@ class Inserir
 {
     public function index()
     {
-        print Consulta::lista('consultar');
+        print Db::consultar('consultar');
         print "<br><fieldset><legend>INSERIR</legend>
             <form method='post'><br><br>
             <input type='text' id='nome' placeholder='Nome'><br>
@@ -29,7 +29,7 @@ class Apagar
 {
     public function index()
     {
-        print Consulta::lista('apagar');
+        print Db::consultar('apagar');
         print "<br><fieldset><legend>APAGAR</legend>
             <form method='post'><br><br><div id='apagar'>
             <span class='confirma'>Confirma ?</span><br> 
@@ -43,7 +43,7 @@ class Alterar
 {
     public function index()
     {
-        print Consulta::lista('alterar');
+        print Db::consultar('alterar');
         print "<br><fieldset><legend>ALTERAR</legend>
             <form method='post'><br><br><div id='alterar'>
             <input type='text' id='anome' placeholder='Digite Novo Nome'><br>

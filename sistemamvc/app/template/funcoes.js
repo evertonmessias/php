@@ -21,10 +21,11 @@ function alterar(x) {
             return false;
         }
         else {
+            var botaoalterar = $("#botaoalterar").val();
             var nome = $("#anome").val();
             var email = $("#aemail").val();
             var tel = $("#atel").val();
-            $.post("./app/model/altera.php", { idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("./app/model/acao.php", {botaoalterar:botaoalterar , idd: idd, nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -36,8 +37,9 @@ function apagar(y) {
     $('#apagar').css({ 'display': 'block' });
     $('#linha' + y).css({ 'background-color': '#ccc' });
     idd = y;
-    $("#botaoapagar").click(function () {        
-        $.post("./app/model/apaga.php", { idd: idd }, function (mostrar) {
+    $("#botaoapagar").click(function () { 
+        var botaoapagar = $("#botaoapagar").val();       
+        $.post("./app/model/acao.php", { botaoapagar:botaoapagar,idd: idd }, function (mostrar) {
             $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
         });
     });
@@ -56,10 +58,11 @@ $(function () {
             $("#email").val(''); $("#tel").val('');
             return false;
         } else {
+            var botaoinserir = $("#botaoinserir").val();
             var nome = $("#nome").val();
             var email = $("#email").val();
             var tel = $("#tel").val();
-            $.post("./app/model/inseri.php", {nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("./app/model/acao.php", {botaoinserir:botaoinserir,nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -72,9 +75,10 @@ $(function () {
             $("#senha").val('');
             return false;
         } else {
+            var botaologin = $("#botaologin").val();
             var nome = $("#nome").val();
             var senha = $("#senha").val();           
-            $.post("./model/login.php", { nome: nome, senha: senha }, function (mostrar) {
+            $.post("./model/acao.php", {botaologin:botaologin, nome: nome, senha: senha }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
@@ -87,10 +91,11 @@ $(function () {
             $("#cemail").val(''); $("#cmsg").val('');
             return false;
         } else {
+            var botaocontatos = $("#botaocontatos").val();
             var nome = $("#cnome").val();
             var email = $("#cemail").val();
             var msg = $("#cmsg").val();
-            $.post("./app/model/send.php", { nome: nome, email: email, msg: msg }, function (mostrar) {
+            $.post("./app/model/acao.php", {botaocontatos:botaocontatos, nome: nome, email: email, msg: msg }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
