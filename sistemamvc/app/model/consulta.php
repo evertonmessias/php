@@ -1,10 +1,10 @@
 <?php
 
-abstract class Banco
+abstract class Consulta
 {
     public static function lista($tipo)
-    {       
-    $sql = "SELECT * from ".Sistema::$tabela1."";
+    {
+        $sql = "SELECT * from " . Sistema::$tabela1 . "";
         $lista = Sistema::conexao()->query($sql);
         $saida = "";
         print "<table class='tabela'><tr><td class='tdida'><h4>ID</h4></td><td><h4>Nome</h4></td><td><h4>Telefone</h4></td><td><h4>E-Mail</h4></td></tr>";
@@ -31,7 +31,3 @@ abstract class Banco
         return $saida;
     }
 }
-
-
-
-

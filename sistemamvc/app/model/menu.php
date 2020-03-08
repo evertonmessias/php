@@ -1,4 +1,5 @@
 <?php
+include 'consulta.php';
 class Home
 {
     public function index()
@@ -13,7 +14,7 @@ class Inserir
 {
     public function index()
     {
-        print Banco::lista('consultar');
+        print Consulta::lista('consultar');
         print "<br><fieldset><legend>INSERIR</legend>
             <form method='post'><br><br>
             <input type='text' id='nome' placeholder='Nome'><br>
@@ -28,7 +29,7 @@ class Apagar
 {
     public function index()
     {
-        print Banco::lista('apagar');
+        print Consulta::lista('apagar');
         print "<br><fieldset><legend>APAGAR</legend>
             <form method='post'><br><br><div id='apagar'>
             <span class='confirma'>Confirma ?</span><br> 
@@ -42,7 +43,7 @@ class Alterar
 {
     public function index()
     {
-        print Banco::lista('alterar');
+        print Consulta::lista('alterar');
         print "<br><fieldset><legend>ALTERAR</legend>
             <form method='post'><br><br><div id='alterar'>
             <input type='text' id='anome' placeholder='Digite Novo Nome'><br>

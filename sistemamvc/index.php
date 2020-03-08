@@ -1,7 +1,6 @@
 <?php
 include 'app/core/core.php';
 include 'app/model/menu.php';
-include 'app/model/includes.php';
 include 'app/model/config.php';
 include 'app/template/head.html';
 Sistema::sessao();

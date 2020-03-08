@@ -60,7 +60,7 @@ $(function () {
             var nome = $("#nome").val();
             var email = $("#email").val();
             var tel = $("#tel").val();
-            $.post("./app/model/inserir.php", { botaoinserir:botaoinserir,nome: nome, email: email, tel: tel }, function (mostrar) {
+            $.post("./app/model/inseri.php", { botaoinserir:botaoinserir,nome: nome, email: email, tel: tel }, function (mostrar) {
                 $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
             });
         }
