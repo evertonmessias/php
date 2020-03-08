@@ -1,6 +1,6 @@
 <?php
-include '../core/includes.php';
-include 'db.php';
+namespace app;
+require_once '../../vendor/autoload.php';
 
 if(isset($_POST['botaoinserir'])){
     Db::inserir();

@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+namespace app;
 class Home
 {
     public function index()

@@ -1,5 +1,5 @@
 <?php
-
+namespace app;
 abstract class Db
 {
     public static function consultar($tipo)

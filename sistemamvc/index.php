@@ -1,7 +1,6 @@
 <?php
-include 'app/core/core.php';
-include 'app/model/menu.php';
-include 'app/core/includes.php';
+namespace app; // busca de classes do autoload
+require_once './vendor/autoload.php'; // uso das classes no autoload
 include 'app/template/head.html';
 Sistema::sessao();
 Sistema::erro();
