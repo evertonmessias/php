@@ -1,3 +1,3 @@
 <?php
-header('Location:laravel6/');
+print "<script>window.location.href='http://localhost/laravel6/public'</script>";
 ?>
