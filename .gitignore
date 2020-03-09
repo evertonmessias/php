@@ -1,6 +1,7 @@
 img/
 log/
 laravel58/
+laravel6/
 config.php
 autoload/vendor/
 autoload/App/Model/Servidor.php
