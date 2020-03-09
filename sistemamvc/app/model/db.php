@@ -4,7 +4,12 @@ abstract class Db
 {
     public static function consultar($tipo)
     {
-        $sql = "SELECT * from " . Sistema::$tabela1 . "";
+        $sql = "SELECT 
+        pessoas.id,
+        pessoas.nome,
+        pessoas.telefone,
+        pessoas.email 
+        from " . Sistema::$tabela1 . "";
         $lista = Sistema::conexao()->query($sql);
         $saida = "";
         print "<table class='tabela'><tr class='$tipo'><th class='thida'><h4>ID</h4></th><th><h4>Nome</h4></th><th><h4>Telefone</h4></th><th><h4>E-Mail</h4></th></tr>";
@@ -98,11 +103,11 @@ abstract class Db
         $senha = @$_POST['senha'];
         Sistema::conexao();
         $criptosenha = md5($senha);
-        $sql = "SELECT * from login where user='$nome' and pass='$criptosenha'";
+        $sql = "SELECT users.name,users.password from users where users.name='$nome' and users.password='$criptosenha'";
         $resultado = Sistema::conexao()->query($sql);
         $busca = false;
         foreach ($resultado as $linha) {
-            if ($linha['user'] == $nome && $linha['pass'] == $criptosenha) $busca = true;
+            if ($linha['name'] == $nome && $linha['password'] == $criptosenha) $busca = true;
         }
         if ($busca) {
             session_start();
