@@ -4,6 +4,6 @@ laravel6/
 config.php
 autoload/vendor/
 autoload/App/Model/Servidor.php
-sistemaoo/model/config.php
+oosistema/model/config.php
 sistemamvc/vendor/
 sistemamvc/app/model/includes.php
