@@ -12,3 +12,4 @@ $saida = ob_get_contents();
 ob_end_clean(); // fim 
 $conteudo = str_replace('{{conteudo}}',$saida,$nav_content);
 echo $conteudo;
+//comando: composer dumpautoload -o
