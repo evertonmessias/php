@@ -96,7 +96,8 @@ $(function () {
             var email = $("#cemail").val();
             var msg = $("#cmsg").val();
             $.post("./app/model/acao.php", {botaocontatos:botaocontatos, nome: nome, email: email, msg: msg }, function (mostrar) {
-                $("#quadro").fadeIn(); $("#mensagem").html(mostrar);
+                $("#quadro").fadeIn(); $("#mensagem").html(mostrar);$("#cnome").val('').focus();
+                $("#cemail").val(''); $("#cmsg").val('');
             });
         }
     });

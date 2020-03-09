@@ -78,7 +78,13 @@ abstract class Db
         $msg = $_POST['msg'];
         $eu = 'everton.messias@gmail.com';
         $assunto = 'Mensagem do Site';
-        $enviar = mail($eu, $assunto, $msg, $email);
+
+        $cabecalho = 'MIME-Version: 1.0' . "\r\n";
+        $cabecalho .= 'Content-type: text/html; charset=UTF-8;' . "\r\n";
+        $cabecalho .= $email."\r\n"; 
+
+        $enviar = mail($eu, $assunto, $nome.", escreveu:\r\n".$msg, $cabecalho);
+        
         print "Nome: " . $nome . "<br>E-mail: " . $email . "<br><br>";
         if ($enviar) {
             print "Mensagem Enviada com Sucesso !";
