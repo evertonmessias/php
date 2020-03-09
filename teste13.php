@@ -1,3 +1,3 @@
 <?php
-header('Location:sistemamvc/');
+header('Location:laravel6/public');
 ?>

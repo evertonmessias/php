@@ -1,3 +1,3 @@
 <?php
-header('Location:sistemaoo/');
+header('Location:sistemamvc/');
 ?>
