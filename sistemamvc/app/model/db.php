@@ -103,11 +103,11 @@ abstract class Db
         $senha = @$_POST['senha'];
         Sistema::conexao();
         $criptosenha = md5($senha);
-        $sql = "SELECT users.name,users.password from users where users.name='$nome' and users.password='$criptosenha'";
+        $sql = "SELECT users.name,users.pass from users where users.name='$nome' and users.pass='$criptosenha'";
         $resultado = Sistema::conexao()->query($sql);
         $busca = false;
         foreach ($resultado as $linha) {
-            if ($linha['name'] == $nome && $linha['password'] == $criptosenha) $busca = true;
+            if ($linha['name'] == $nome && $linha['pass'] == $criptosenha) $busca = true;
         }
         if ($busca) {
             session_start();
