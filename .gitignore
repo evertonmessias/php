@@ -1,8 +1,7 @@
+config.php
 img/
 log/
 laravel6/
 fatfree/
-config.php
-autoload/vendor/
-autoload/App/Model/Servidor.php
+autoload/
 sistemamvc/
