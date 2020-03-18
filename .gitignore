@@ -5,5 +5,4 @@ fatfree/
 config.php
 autoload/vendor/
 autoload/App/Model/Servidor.php
-sistemamvc/vendor/
-sistemamvc/app/model/includes.php
+sistemamvc/
