@@ -39,7 +39,7 @@
                 session_start();
                 $_SESSION['strsessao'] = $_POST['valor'];
                 echo "<p><a href='./teste06_2.php?PHPSESSID=".session_id()."'>Próx Pagina</a></p>";
-                }else{
+                }else{ // PHPSESSID se os cookies estiverem desativados ..
                     echo "<p>Digite Algo ..</p>";
                 }
             }
