@@ -1,3 +1,3 @@
 <?php
-header('Location:fatfree');
+header('Location:mvccomposer');
 ?>

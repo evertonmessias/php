@@ -1,7 +1,8 @@
 config.php
 img/
 log/
-laravel6/
-fatfree/
 autoload/
 sistemamvc/
+mvccomposer/
+fatfree/
+laravel6/

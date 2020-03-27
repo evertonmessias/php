@@ -1,3 +1,3 @@
 <?php
-header('Location:laravel6/public');
+header('Location:fatfree');
 ?>
