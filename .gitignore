@@ -2,7 +2,7 @@ config.php
 img/
 log/
 autoload/
+api_rest/
 sistemamvc/
-mvccomposer/
 fatfree/
 laravel6/
