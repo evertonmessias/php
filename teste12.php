@@ -1,3 +1,3 @@
 <?php
-header('Location:sistemamvc/');
+header('Location:api_rest/');
 ?>
