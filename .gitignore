@@ -1,7 +1,7 @@
 config.php
 img/
 log/
-autoload/
+packagist/
 api_rest/
 sistemamvc/
 fatfree/
