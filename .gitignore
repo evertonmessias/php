@@ -1,9 +1,11 @@
-config.php
+api_rest/
 bkp/
+fatfree/
 img/
+laravel6/
 log/
 packagist/
-api_rest/
 sistemamvc/
-fatfree/
-laravel6/
+temp/
+config.php
+
