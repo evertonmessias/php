@@ -1,3 +1,3 @@
 <?php
-header('Location:api_rest/');
+header('Location:packagist/');
 ?>

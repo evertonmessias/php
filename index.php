@@ -26,7 +26,7 @@ sessao(basename(__FILE__));
         <li><a href="./index_aux.php?file=teste09.php" target="_blank">Teste 09 - Sintaxe Básica O.O.</a></li>
         <li><a href="./index_aux.php?file=teste10.php" target="_blank">Teste 10 - Herança e Polimorfismo</a></li>
         <li><a href="./index_aux.php?file=teste11.php" target="_blank">Teste 11 - Eq. 2º Grau com O.O.</a></li>
-        <li><a href="./index_aux.php?file=teste12.php" target="_blank">Teste 12 - API Rest</a></li>
+        <li><a href="./index_aux.php?file=teste12.php" target="_blank">Teste 12 - Packagist</a></li>
         <li><a href="./index_aux.php?file=teste13.php" target="_blank">Teste 13 - CRUD MVC Composer</a></li>
         <li><a href="./index_aux.php?file=teste14.php" target="_blank">Teste 14 - Fat Free Framework</a></li>
         <li><a href="./index_aux.php?file=teste15.php" target="_blank">Teste 15 - Laravel 6</a></li>
